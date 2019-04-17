@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
+import './demo/basic-wigdet/Container.dart';
+import './demo/basic-wigdet/Text.dart';
+import './demo/basic-wigdet/Row.dart';
+import './demo/basic-wigdet/Column.dart';
+import './demo/basic-wigdet/Image.dart';
+import './demo/basic-wigdet/Icon.dart';
+import './demo/basic-wigdet/Button.dart';
+import './demo/basic-wigdet/Scaffold.dart';
+import './demo/basic-wigdet/BasicAppBar.dart';
+import './demo/basic-wigdet/TabbedAppBar.dart';
+import './demo/basic-wigdet/FlutterLogo.dart';
+import './demo/basic-wigdet/PlaceHolder.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page 12333'),
@@ -98,7 +100,85 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
-            
+             new RaisedButton(
+              child: Text("Container"),
+              onPressed: (){
+                Navigator.push<String>(context, MaterialPageRoute(builder: (context)=>new LayoutContainer(title: '这里是传递给下一个页面的参数')  ))
+                .then((String result){
+                  showDialog(context: context,builder: (BuildContext context){
+                    return new AlertDialog(
+                      content: new Text("您输入的昵称为:$result"),
+                    );
+                  });
+                });
+              }
+            ),
+            new RaisedButton(
+              child: Text('Text'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutText() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Row '),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutRow() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Column'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutColumn() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Image'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutImage() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Icon'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutIcon() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Button'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutButton() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('Scaffold'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutScaffold() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('BasicAppBar'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new BasicAppBarSample() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('TabbedAppBar'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new TabbedAppBarSample() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('FlutterLogo'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new FlutterLogoSample() ));
+              },
+            ),
+            new RaisedButton(
+              child: Text('PlaceHolder'),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> new PlaceHolderWigdet() ));
+              },
+            ),
           ],
         ),
       ),
