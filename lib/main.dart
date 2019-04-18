@@ -1,3 +1,29 @@
+/**
+ *  new MaterailApp({
+      navigatorKey（导航键） GlobalKey<NavigatorState> navigatorKey.currentState 相当于 Navigator.of(context)
+      home（主页） Widget  
+      routes（路由） Map<String, WidgetBuilder>  声明程序中有哪个通过Navigation.of(context).pushNamed跳转的路由
+      initialRoute（初始路由） String 初始路由，当用户进入程序时，自动打开对应的路由
+      onGenerateRoute（生成路由）RouteFactory 当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
+      onUnknownRoute（未知路由）RouteFactory 效果跟onGenerateRoute一样调用顺序为onGenerateRoute ==> onUnknownRoute
+      navigatorObservers（导航观察器）List<NavigatorObserver> 路由观察器，当调用Navigator的相关方法时，会回调相关的操作
+      builder（建造者）TransitionBuilder 当构建一个Widget前调用一般做字体大小，方向，主题颜色等配置
+      title（标题）String
+      onGenerateTitle（生成标题）GenerateAppTitle 跟上面的tiitle一样，但含有一个context参数用于做本地化
+      color（颜色）Color  该颜色为Android中程序切换中应用图标背景的颜色，当应用图标背景为透明时
+      theme（主题）ThemeData 应用程序的主题，各种的定制颜色都可以设置，用于程序主题切换
+      locale(地点)Locale  当前区域，如果为null则使用系统区域一般用于语言切换
+      localizationsDelegates（本地化委托）Iterable<LocalizationsDelegate<dynamic>>  本地化委托，用于更改Flutter Widget默认的提示语，按钮text等
+      localeResolutionCallback（区域分辨回调）LocaleResolutionCallback  当传入的是不支持的语种，可以根据这个回调，返回相近,并且支持的语种
+      supportedLocales（支持区域）Iterable<Locale> 传入支持的语种数组
+      debugShowMaterialGrid（调试显示材质网格）bool
+      showPerformanceOverlay（显示性能叠加）bool 
+      checkerboardRasterCacheImages（棋盘格光栅缓存图像）bool
+      checkerboardOffscreenLayers（棋盘格层）bool
+      showSemanticsDebugger（显示语义调试器）bool
+      debugShowCheckedModeBanner（调试显示检查模式横幅）bool
+ *  })
+ */
 import 'package:flutter/material.dart';
 
 import './demo/basic-wigdet/Container.dart';
@@ -13,6 +39,17 @@ import './demo/basic-wigdet/TabbedAppBar.dart';
 import './demo/basic-wigdet/FlutterLogo.dart';
 import './demo/basic-wigdet/PlaceHolder.dart';
 
+import './demo/material-wigdet/BottomNavigationBar.dart';
+import './demo/material-wigdet/TabController.dart';
+import './demo/material-wigdet/TextField.dart';
+import './demo/material-wigdet/CheckBox.dart';
+import './demo/material-wigdet/Radio.dart';
+import './demo/material-wigdet/Switch.dart';
+import './demo/material-wigdet/Slider.dart';
+import './demo/material-wigdet/TimePicker.dart';
+import './demo/material-wigdet/Dialog.dart';
+
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -23,6 +60,65 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page 12333'),
+      routes: {
+        // '/home':(BuildContext context) => MyHomePage(),
+        // '/home/one':(BuildContext context) => OnePage(),
+        // ...
+      },
+      // initialRoute: '/home/one',
+      // onGenerateRoute: (setting){
+      //   //setting.isInitialRoute; bool类型 是否初始路由
+      //   //setting.name; 要跳转的路由名key
+      //   return new PageRouteBuilder(
+      //     pageBuilder: (BuildContext context, _, __) {
+      //       //这里为返回的Widget
+      //       return MyHomePage();
+      //     },
+      //     opaque: false,
+      //     //跳转动画
+      //     transitionDuration: new Duration(milliseconds: 200),
+      //     transitionsBuilder:(___, Animation<double> animation, ____, Widget child) {
+      //       return new FadeTransition(
+      //         opacity: animation,
+      //         child: new ScaleTransition(
+      //           scale: new Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+      //           child: child,
+      //         ),
+      //       );
+      //     });
+      // },
+      navigatorObservers: [MyObserver()],
+      builder: (BuildContext context, Widget child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.4 ),//字体大小
+          child: child,
+        );
+      },
+      onGenerateTitle: (context){
+        return 'Flutter应用';
+      },
+      // localizationsDelegates: [
+      //     MyLocalizationsDelegates(),
+      // ],
+      // locale: Locale('zh','cn'),
+      // localeResolutionCallback: (local,support){
+      //   if(support.contains(support)){
+      //     print('support');
+      //     return local;
+      //   }
+      //   print('no_support');
+      //   return const Locale('us','uk');
+      // },
+      // supportedLocales: [
+      //   const Locale('uok'),
+      //   const Locale('meg'),
+      // ],
+      // debugShowMaterialGrid:true,
+      // showPerformanceOverlay:true,
+      // checkerboardRasterCacheImages:true,
+      // checkerboardOffscreenLayers:true,
+      // showSemanticsDebugger:true,
+      // debugShowCheckedModeBanner:true
     );
   }
 }
@@ -91,93 +187,173 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'You have pushed the button this many times:',
+                ),
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.display1,
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-             new RaisedButton(
-              child: Text("Container"),
-              onPressed: (){
-                Navigator.push<String>(context, MaterialPageRoute(builder: (context)=>new LayoutContainer(title: '这里是传递给下一个页面的参数')  ))
-                .then((String result){
-                  showDialog(context: context,builder: (BuildContext context){
-                    return new AlertDialog(
-                      content: new Text("您输入的昵称为:$result"),
-                    );
-                  });
-                });
-              }
-            ),
-            new RaisedButton(
-              child: Text('Text'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutText() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Row '),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutRow() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Column'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutColumn() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Image'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutImage() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Icon'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutIcon() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Button'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutButton() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('Scaffold'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutScaffold() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('BasicAppBar'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new BasicAppBarSample() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('TabbedAppBar'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new TabbedAppBarSample() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('FlutterLogo'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new FlutterLogoSample() ));
-              },
-            ),
-            new RaisedButton(
-              child: Text('PlaceHolder'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> new PlaceHolderWigdet() ));
-              },
+            new Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                new Column(
+                  children: <Widget>[
+                    new Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: new Text('basic-wigdet'),
+                    ),
+                    new RaisedButton(
+                      child: Text("Container"),
+                      onPressed: (){
+                        Navigator.push<String>(context, MaterialPageRoute(builder: (context)=>new LayoutContainer(title: '这里是传递给下一个页面的参数')  ))
+                        .then((String result){
+                          showDialog(context: context,builder: (BuildContext context){
+                            return new AlertDialog(
+                              content: new Text("您输入的昵称为:$result"),
+                            );
+                          });
+                        });
+                      }
+                    ),
+                    new RaisedButton(
+                      child: Text('Text'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutText() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Row '),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutRow() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Column'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutColumn() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Image'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutImage() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Icon'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutIcon() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Button'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutButton() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Scaffold'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LayoutScaffold() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('BasicAppBar'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new BasicAppBarSample() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('TabbedAppBar'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new TabbedAppBarSample() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('FlutterLogo'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new FlutterLogoSample() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('PlaceHolder'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new PlaceHolderWigdet() ));
+                      },
+                    ),
+                  ],
+                ),
+                new Column(
+                  children: <Widget>[
+                    new Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: new Text('material-widget'),
+                    ),
+                    new RaisedButton(
+                      child: Text('BottomNavigationBar'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new BottomNavigationBarWigdet() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('TabController'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new MyTabbedPage() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('TextField'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new EditTextElement() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('CheckBox'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LearnCheckBox() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Radio'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new RadioDemo() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Switch'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new SwitchDemo() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Slider'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new LearnSlider() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('TimePicker'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new DatePickerDemo() ));
+                      },
+                    ),
+                    new RaisedButton(
+                      child: Text('Dialog'),
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> new DialogDemo() ));
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
@@ -190,3 +366,60 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+/**
+ * 路由监听器
+ */
+class MyObserver extends NavigatorObserver{
+  @override
+  void didPush(Route route, Route previousRoute) {
+    // 当调用Navigator.push时回调
+    super.didPush(route, previousRoute);
+    //可通过route.settings获取路由相关内容
+    //route.currentResult获取返回内容
+    //....等等
+    print(route.settings.name);
+  }
+}
+
+/**
+ * 本地化委托
+ */
+// class MyLocalizationsDelegates extends LocalizationsDelegate<MaterialLocalizations>{
+//   @override
+//   bool isSupported(Locale locale) {
+// //是否支持该locale，如果不支持会报异常
+//     if(locale == const Locale('zh','cn')){
+//       return true;
+//     }
+//     return false;
+//   }
+//   @override//是否需要重载
+//   bool shouldReload(LocalizationsDelegate old)  => false;
+
+//   @override
+//   Future<MaterialLocalizations> load(Locale locale) {
+// //加载本地化
+//     return new SynchronousFuture(new MyLocalizations(locale));
+//   }
+// }
+// //本地化实现，继承DefaultMaterialLocalizations
+// class MyLocalizations extends DefaultMaterialLocalizations{
+//   final Locale locale;
+//   MyLocalizations(this.locale, );
+//   @override
+//   String get okButtonLabel {
+//     if(locale == const Locale('zh','cn')){
+//       return '好的';
+//     }else{
+//       return super.okButtonLabel;
+//     }
+//   }
+//   @override
+//   String get backButtonTooltip {
+//     if(locale == const Locale('zh','cn')){
+//       return '返回';
+//     }else{
+//       return super.okButtonLabel;
+//     }
+//   }
+// }

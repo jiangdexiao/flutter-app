@@ -2,6 +2,23 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/**
+ *  new TabBar({
+      tabs	一般使用Tab对象,当然也可以是其他的Widget
+      controller	TabController对象
+      isScrollable	是否可滚动
+      indicatorColor	指示器颜色
+      indicatorWeight	指示器厚度
+      indicatorPadding	底部指示器的Padding
+      indicator	指示器decoration，例如边框等
+      indicatorSize	指示器大小计算方式
+      labelColor	选中Tab文字颜色
+      labelStyle	选中Tab文字Style
+      unselectedLabelColor	未选中Tab中文字颜色
+      unselectedLabelStyle	未选中Tab中文字style
+ *  })
+ */
+
 import 'package:flutter/material.dart';
 
 class TabbedAppBarSample extends StatelessWidget {
@@ -14,6 +31,15 @@ class TabbedAppBarSample extends StatelessWidget {
           appBar: new AppBar(
             title: const Text('Tabbed AppBar'),
             bottom: new TabBar(
+              indicator: new ShapeDecoration(shape: new Border.all(color: Colors.redAccent, width: 1.0)),
+              indicatorColor:Colors.red,
+              // indicatorWeight:12.0,
+              // indicatorPadding: const EdgeInsets.all(10.0),
+              indicatorSize: TabBarIndicatorSize.tab,
+              labelColor: Colors.white,
+              labelStyle: new TextStyle(fontSize: 16.0),
+              unselectedLabelColor: Colors.black,
+              unselectedLabelStyle: new TextStyle(fontSize: 12.0),
               isScrollable: true,
               tabs: choices.map((Choice choice) {
                 return new Tab(
@@ -49,6 +75,8 @@ const List<Choice> choices = const <Choice>[
   const Choice(title: 'BOAT', icon: Icons.directions_boat),
   const Choice(title: 'BUS', icon: Icons.directions_bus),
   const Choice(title: 'TRAIN', icon: Icons.directions_railway),
+  const Choice(title: 'WALK', icon: Icons.directions_walk),
+  const Choice(title: 'WALK', icon: Icons.directions_walk),
   const Choice(title: 'WALK', icon: Icons.directions_walk),
 ];
 
