@@ -48,6 +48,7 @@ class LayoutContainer extends StatelessWidget{
         // ),
         // width:100.0,
         // height: 56.0,
+        color: Theme.of(context).accentColor,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         margin: const EdgeInsets.all(0),
         alignment: Alignment.center,
@@ -60,15 +61,15 @@ class LayoutContainer extends StatelessWidget{
         // ),
         // transform: new Matrix4.rotationZ(0.1),
         //decoration是背景
-        decoration: new BoxDecoration(
-          border: new Border.all(width: 2.0, color: Colors.red),
-          color: Colors.grey,
-          borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
-          image: new DecorationImage(
-            image: new NetworkImage('https://avatar.csdn.net/8/9/A/3_chenlove1.jpg'),
-            centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
-          ),
-        ),
+        // decoration: new BoxDecoration(
+        //   border: new Border.all(width: 2.0, color: Colors.red),
+        //   color: Colors.grey,
+        //   borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
+        //   image: new DecorationImage(
+        //     image: new NetworkImage('https://avatar.csdn.net/8/9/A/3_chenlove1.jpg'),
+        //     centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+        //   ),
+        // ),
         child: new Row(children: <Widget>[
           new IconButton(
             icon: new Icon(Icons.menu),

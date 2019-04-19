@@ -2,28 +2,16 @@ import 'package:flutter/material.dart';
 //使用 外部包 在pubspec文件管理里配置
 import 'package:english_words/english_words.dart';
 
-void main()=> runApp(new MyApp());
 //无状态部件
-class MyApp extends StatelessWidget{
+class ListViewDemo extends StatelessWidget{
   @override 
   Widget build(BuildContext context){
     // final wordPair = new WordPair.random();
-    return new MaterialApp(
-      title:'Welcome to Flutter',
-      theme: new ThemeData(
-        primaryColor: Colors.red
+    return new Scaffold(
+      appBar: AppBar(
+        title: Text('ListView'),
       ),
-      // home:new Scaffold(
-      //   appBar: new AppBar(
-      //     title:new Text('Welcome to Flutter Title'),
-      //   ),
-      //   body:new Center(
-      //     // child: new Text('Hello World'),
-      //     // child: new Text(wordPair.asPascalCase),
-      //     child: new RandomWords(),
-      //   ),
-      // ),
-      home: new RandomWords(),
+      body: new RandomWords(),
     );
   }
 }

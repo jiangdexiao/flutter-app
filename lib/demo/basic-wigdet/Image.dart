@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 // 1.Image：通过ImageProvider来加载图片
 // Image 的一个参数是 ImageProvider，基本上所有形式的图片加载都是依赖它，这个类里面就是实现图片加载的原理。用法如下：
 // new Image(image: new AssetImage('images/logo.png'));
@@ -219,6 +221,22 @@ class _ImageViewWidget extends State<ImageViewWidget> {
                   image: widget.networkImage,
                 ),
               ],
+            ),
+          ),
+          new Center(
+            //使用占位符淡入
+            child: new FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image:
+                    'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+              ),
+          ),
+          //使用缓存图片
+          new Center(
+            child: new CachedNetworkImage(
+              placeholder: new CircularProgressIndicator(),
+              imageUrl:
+                  'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
             ),
           )
         ],

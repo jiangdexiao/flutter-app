@@ -16,7 +16,7 @@ class _DialogDemo extends State<DialogDemo> {
           children: <Widget>[
             new MaterialButton(
               color: Colors.blue,
-              child: new Text('点我'),
+              child: new Text('点我 AlertDialog'),
               onPressed: () {
                 showDialog<Null>(
                   context: context,
@@ -53,7 +53,7 @@ class _DialogDemo extends State<DialogDemo> {
             ),
             new MaterialButton(
               color: Colors.blue,
-              child: new Text('点我'),
+              child: new Text('点我 SimpleDialog'),
               onPressed: () {
                 showDialog<Null>(
                   context: context,
@@ -79,6 +79,35 @@ class _DialogDemo extends State<DialogDemo> {
                 ).then((val) {
                   print(val);
                 });
+              },
+            ),
+            new MaterialButton(
+              child: Text('点我 showModalBottomSheet'),
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context){
+                    return new Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        new ListTile(
+                          leading: new Icon(Icons.photo_camera),
+                          title: new Text("Camera"),
+                          onTap: () async {
+                            Navigator.pop(context);
+                          },
+                        ),
+                        new ListTile(
+                          leading: new Icon(Icons.photo_library),
+                          title: new Text("Gallery"),
+                          onTap: () async {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    );
+                  }
+                );
               },
             ),
           ],
