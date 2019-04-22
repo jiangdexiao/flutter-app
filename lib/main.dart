@@ -88,6 +88,7 @@ import './demo/basic-wigdet/BasicAppBar.dart';
 import './demo/basic-wigdet/TabbedAppBar.dart';
 import './demo/basic-wigdet/FlutterLogo.dart';
 import './demo/basic-wigdet/PlaceHolder.dart';
+import './demo/basic-wigdet/PreferredSizeAppBar.dart';
 
 import './demo/material-wigdet/BottomNavigationBar.dart';
 import './demo/material-wigdet/TabController.dart';
@@ -114,7 +115,14 @@ import './demo/material-wigdet/Dismissible.dart';
 
 import './demo/gesture/GestureDetector.dart';
 import './demo/gesture/ShopCart.dart';
+import './demo/gesture/AnimatedList.dart';
+import './demo/layout/Row_Column.dart';
 
+import './demo/examples/NutritionAnalysis.dart';
+import './demo/examples/JsonParse.dart';
+
+// flutter packages pub run build_runner build
+// flutter packages pub run build_runner watch
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -646,6 +654,51 @@ class _MyHomePageState extends State<MyHomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => new DismissibleDemo()));
+                          },
+                        ),
+                        new RaisedButton(
+                          child: Text('AnimationList'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => new AnimatedListSample()));
+                          },
+                        ),
+                        new RaisedButton(
+                          child: Text('PreferredSizeAppBar'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => new AppBarBottomSample()));
+                          },
+                        ),
+                        new RaisedButton(
+                          child: Text('Row Column Layout'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => new RowColumnLayoutSimple()));
+                          },
+                        ),
+                        new RaisedButton(
+                          child: Text('NutritionAnalysis'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => new NutritionAnalysisWidget()));
+                          },
+                        ),
+                        new RaisedButton(
+                          child: Text('JsonParse'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => new JsonParseWidget()));
                           },
                         ),
                       ],
