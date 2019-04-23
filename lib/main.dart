@@ -123,16 +123,27 @@ import './demo/examples/JsonParse.dart';
 
 // flutter packages pub run build_runner build
 // flutter packages pub run build_runner watch
-void main() => runApp(MyApp());
+
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,
+debugPaintBaselinesEnabled,
+debugPaintPointersEnabled,
+debugPaintLayerBordersEnabled;
+void main() {
+  // debugPaintLayerBordersEnabled =true;
+  // debugPaintPointersEnabled = true;
+  // debugPaintBaselinesEnabled=true;
+  // debugPaintSizeEnabled=true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
+        // primaryColor: Colors.lightBlue[800],
+        // accentColor: Colors.cyan[600],
+        backgroundColor: Colors.red,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page 12333'),
       routes: {
