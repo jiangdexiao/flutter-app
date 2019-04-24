@@ -121,9 +121,14 @@ import './demo/layout/Row_Column.dart';
 import './demo/examples/NutritionAnalysis.dart';
 import './demo/examples/JsonParse.dart';
 
+// 生成json转实体类 相关操作命令
 // flutter packages pub run build_runner build
 // flutter packages pub run build_runner watch
 
+// 生成路由映射关系相关操作命令
+// flutter packages pub run build_runner clean
+// flutter packages pub run build_runner build --delete-conflicting-outputs
+import './router.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,
 debugPaintBaselinesEnabled,
 debugPaintPointersEnabled,
@@ -368,7 +373,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => new LayoutButton()));
+                                    builder: (context) => AppRoute.getPage('page://LayoutButtonPage', null)
+                                ),
+                            );
                           },
                         ),
                         new RaisedButton(
@@ -698,9 +705,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text('NutritionAnalysis'),
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new NutritionAnalysisWidget()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AppRoute.getPage('page://NutritionAnalysisPage',null)
+                              ),
+                            );
                           },
                         ),
                         new RaisedButton(

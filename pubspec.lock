@@ -8,6 +8,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.36.0"
+  annotation_route:
+    dependency: "direct dev"
+    description:
+      name: annotation_route
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   args:
     dependency: transitive
     description:
@@ -298,6 +305,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.9.6+2"
+  mustache4dart:
+    dependency: transitive
+    description:
+      name: mustache4dart
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.0-dev.0.0"
   package_config:
     dependency: transitive
     description:

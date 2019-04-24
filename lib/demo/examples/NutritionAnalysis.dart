@@ -3,7 +3,12 @@ import 'dart:convert';
 import 'dart:async' show Future;
 import '../../utils/HttpUtils.dart';
 
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://NutritionAnalysisPage')
 class NutritionAnalysisWidget extends StatefulWidget {
+  NutritionAnalysisWidget(MyRouteOption option):super();
   @override
   _NutritionAnalysisWidget createState() => _NutritionAnalysisWidget();
 }
