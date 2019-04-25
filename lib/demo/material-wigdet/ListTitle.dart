@@ -16,7 +16,12 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ListTitlePage')
 class ListTitleWidget extends StatelessWidget{
+  ListTitleWidget(MyRouteOption option):super();
   @override
   Widget build(BuildContext context){
     return new Scaffold(

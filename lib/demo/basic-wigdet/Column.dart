@@ -18,7 +18,12 @@
   children: 子元素列表
  */
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ColumnPage')
 class LayoutColumn extends StatelessWidget {
+  LayoutColumn(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

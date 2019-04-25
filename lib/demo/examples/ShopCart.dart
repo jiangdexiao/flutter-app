@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
 class Product {
   const Product({this.name});
@@ -47,9 +49,9 @@ class ShoppingListItem extends StatelessWidget {
     );
   }
 }
-
+@ARoute(url: 'page://ShopCartPage')
 class ShoppingList extends StatefulWidget {
-  ShoppingList({Key key, this.products}) : super(key: key);
+  ShoppingList(MyRouteOption option,{Key key, this.products}) : super(key: key);
 
   final List<Product> products;
 

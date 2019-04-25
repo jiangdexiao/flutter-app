@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://TabControllerPage')
 class MyTabbedPage extends StatefulWidget {
-  const MyTabbedPage({ Key key }) : super(key: key);
+  const MyTabbedPage(MyRouteOption option,{ Key key }) : super(key: key);
   @override
   _MyTabbedPageState createState() => _MyTabbedPageState();
 }

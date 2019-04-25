@@ -23,9 +23,14 @@
     })
  */
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://BasicAppBarSamplePage')
 
 // This app is a stateful, it tracks the user's current choice.
 class BasicAppBarSample extends StatefulWidget {
+  BasicAppBarSample(MyRouteOption option):super();
   @override
   _BasicAppBarSampleState createState() => new _BasicAppBarSampleState();
 }
@@ -41,8 +46,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return new  Scaffold(
         appBar: new AppBar(
           title: const Text('Basic AppBar'),
           actions: <Widget>[
@@ -71,8 +75,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample> {
           padding: const EdgeInsets.all(16.0),
           child: new ChoiceCard(choice: _selectedChoice),
         ),
-      ),
-    );
+      );
   }
 }
 

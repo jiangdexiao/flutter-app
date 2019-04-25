@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
+@ARoute(url: 'page://CardPage')
 class CardWigdetDemo extends StatelessWidget{
+  CardWigdetDemo(MyRouteOption option):super();
   @override
   Widget build(BuildContext context){
     return Scaffold(

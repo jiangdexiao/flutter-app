@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
+@ARoute(url: 'page://DataTablePage')
 class DataTableDemo extends StatefulWidget {
+  DataTableDemo(MyRouteOption option):super();
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
 }

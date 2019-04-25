@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
+@ARoute(url: 'page://TimePickerPage')
 class DatePickerDemo extends StatefulWidget {
+  DatePickerDemo(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() => _DatePickerDemo();
 }

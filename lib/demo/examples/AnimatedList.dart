@@ -4,8 +4,11 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+@ARoute(url: 'page://AnimatedListPage')
 class AnimatedListSample extends StatefulWidget {
+  AnimatedListSample(MyRouteOption option):super();
   @override
   _AnimatedListSampleState createState() => new _AnimatedListSampleState();
 }

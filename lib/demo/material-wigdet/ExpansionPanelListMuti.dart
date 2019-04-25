@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ExpansionPanelListMutiPage')
 
 class ExpansionPanelListMutiDemo extends StatefulWidget {
+  ExpansionPanelListMutiDemo(MyRouteOption option):super();
   @override
   _ExpansionPanelListDemoState createState() => _ExpansionPanelListDemoState();
 }

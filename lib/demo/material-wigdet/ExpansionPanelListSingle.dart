@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ExpansionPanelListSinglePage')
 class ExpansionPanelListSingleDemo extends StatefulWidget {
+  ExpansionPanelListSingleDemo(MyRouteOption option):super();
   @override
   _ExpansionPanelListDemoState createState() => _ExpansionPanelListDemoState();
 }

@@ -10,7 +10,12 @@
 // value → double - 滑块的值。
 
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://SliderPage')
 class LearnSlider extends StatefulWidget{
+  LearnSlider(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() {
     return new _LearnSlider();

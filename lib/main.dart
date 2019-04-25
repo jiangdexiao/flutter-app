@@ -75,52 +75,10 @@ dart:isolate
 Concurrent programming using isolates: independent workers that are similar to threads but don't share memory, communicating only via messages. [...]
  */
 import 'package:flutter/material.dart';
-
-import './demo/basic-wigdet/Container.dart';
-import './demo/basic-wigdet/Text.dart';
-import './demo/basic-wigdet/Row.dart';
-import './demo/basic-wigdet/Column.dart';
-import './demo/basic-wigdet/Image.dart';
-import './demo/basic-wigdet/Icon.dart';
-import './demo/basic-wigdet/Button.dart';
-import './demo/basic-wigdet/Scaffold.dart';
-import './demo/basic-wigdet/BasicAppBar.dart';
-import './demo/basic-wigdet/TabbedAppBar.dart';
-import './demo/basic-wigdet/FlutterLogo.dart';
-import './demo/basic-wigdet/PlaceHolder.dart';
-import './demo/basic-wigdet/PreferredSizeAppBar.dart';
-
-import './demo/material-wigdet/BottomNavigationBar.dart';
-import './demo/material-wigdet/TabController.dart';
-import './demo/material-wigdet/TextField.dart';
-import './demo/material-wigdet/CheckBox.dart';
-import './demo/material-wigdet/Radio.dart';
-import './demo/material-wigdet/Switch.dart';
-import './demo/material-wigdet/Slider.dart';
-import './demo/material-wigdet/TimePicker.dart';
-import './demo/material-wigdet/Dialog.dart';
-import './demo/material-wigdet/ExpansionTile.dart';
-import './demo/material-wigdet/ExpansionPanelListSingle.dart';
-import './demo/material-wigdet/ExpansionPanelListMuti.dart';
-import './demo/material-wigdet/Chip.dart';
-import './demo/material-wigdet/Tooltip.dart';
-import './demo/material-wigdet/PaginatedDataTable.dart';
-import './demo/material-wigdet/Card.dart';
-import './demo/material-wigdet/LinearProgressIndicator.dart';
-import './demo/material-wigdet/ListTitle.dart';
-import './demo/material-wigdet/Stepper.dart';
-import './demo/material-wigdet/ListView.dart';
-import './demo/material-wigdet/GridList.dart';
-import './demo/material-wigdet/Dismissible.dart';
-
-import './demo/gesture/GestureDetector.dart';
-import './demo/gesture/ShopCart.dart';
-import './demo/gesture/AnimatedList.dart';
-import './demo/layout/Row_Column.dart';
-
-import './demo/examples/NutritionAnalysis.dart';
-import './demo/examples/JsonParse.dart';
-
+import './demo/menu/MenuItem.dart';
+import 'package:fish_redux/fish_redux.dart';
+import './store/todo_list_page/page.dart';
+import './store/todo_edit_page/page.dart';
 // 生成json转实体类 相关操作命令
 // flutter packages pub run build_runner build
 // flutter packages pub run build_runner watch
@@ -128,7 +86,6 @@ import './demo/examples/JsonParse.dart';
 // 生成路由映射关系相关操作命令
 // flutter packages pub run build_runner clean
 // flutter packages pub run build_runner build --delete-conflicting-outputs
-import './router.dart';
 import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,
 debugPaintBaselinesEnabled,
 debugPaintPointersEnabled,
@@ -141,7 +98,16 @@ void main() {
   runApp(MyApp());
 }
 
+typedef void ButtonPressCallBack(String text);
 class MyApp extends StatelessWidget {
+  final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
+    PageRoutes(
+      pages: <String, Page<Object, dynamic>>{
+        'todo_list': ToDoListPage(),
+        'todo_edit': TodoEditPage(),
+      },
+    ),
+  ]);
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -150,7 +116,8 @@ class MyApp extends StatelessWidget {
         // accentColor: Colors.cyan[600],
         backgroundColor: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page 12333'),
+      home: MyHomePage(title: 'Home'),
+      // home: routes.buildPage('todo_list', null),
       routes: {
         // '/home':(BuildContext context) => MyHomePage(),
         // '/home/one':(BuildContext context) => OnePage(),
@@ -187,6 +154,11 @@ class MyApp extends StatelessWidget {
       },
       onGenerateTitle: (context) {
         return 'Flutter应用';
+      },
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute<Object>(builder: (BuildContext context) {
+          return routes.buildPage(settings.name, settings.arguments);
+        });
       },
       // localizationsDelegates: [
       //     MyLocalizationsDelegates(),
@@ -245,7 +217,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -262,472 +233,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          Center(
-            // Center is a layout widget. It takes a single child and positions it
-            // in the middle of the parent.
-            child: Column(
-              // Column is also layout widget. It takes a list of children and
-              // arranges them vertically. By default, it sizes itself to fit its
-              // children horizontally, and tries to be as tall as its parent.
-              //
-              // Invoke "debug painting" (press "p" in the console, choose the
-              // "Toggle Debug Paint" action from the Flutter Inspector in Android
-              // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-              // to see the wireframe for each widget.
-              //
-              // Column has various properties to control how it sizes itself and
-              // how it positions its children. Here we use mainAxisAlignment to
-              // center the children vertically; the main axis here is the vertical
-              // axis because Columns are vertical (the cross axis would be
-              // horizontal).
-              // mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'You have pushed the button this many times:',
-                    ),
-                    Text(
-                      '$_counter',
-                      style: Theme.of(context).textTheme.display1,
-                    ),
-                  ],
-                ),
-                new Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    new Column(
-                      children: <Widget>[
-                        new Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: new Text('basic-wigdet'),
-                        ),
-                        new RaisedButton(
-                            child: Text("Container"),
-                            onPressed: () {
-                              Navigator.push<String>(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => new LayoutContainer(
-                                          title: '这里是传递给下一个页面的参数'))).then(
-                                  (String result) {
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return new AlertDialog(
-                                        content: new Text("您输入的昵称为:$result"),
-                                      );
-                                    });
-                              });
-                            }),
-                        new RaisedButton(
-                          child: Text('Text'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LayoutText()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Row '),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LayoutRow()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Column'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LayoutColumn()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Image'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LayoutImage()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Icon'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LayoutIcon()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Button'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AppRoute.getPage('page://LayoutButtonPage', null)
-                                ),
-                            );
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Scaffold'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new LayoutScaffold()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('BasicAppBar'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new BasicAppBarSample()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('TabbedAppBar'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new TabbedAppBarSample()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('FlutterLogo'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new FlutterLogoSample()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('PlaceHolder'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new PlaceHolderWigdet()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('PaginatedDataTable'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new DataTableDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Card'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new CardWigdetDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ListTitle'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ListTitleWidget()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Stepper'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new StepperWidget()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('GestureDetector'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new GestureDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ShopCart'),
-                          onPressed: () {
-                            List<Product> list = <Product>[
-                                            new Product(name: 'Eggs'),
-                                            new Product(name: 'Flour'),
-                                            new Product(name: 'Chocolate chips'),
-                                          ];
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ShoppingList(
-                                          products: list,
-                                        )));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ListView'),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                    builder: (context) => new ListViewDemo()
-                              )
-                            );
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('GridList'),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                    builder: (context) => new GridListDemo()
-                              )
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    new Column(
-                      children: <Widget>[
-                        new Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: new Text('material-widget'),
-                        ),
-                        new RaisedButton(
-                          child: Text('BottomNavigationBar'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new BottomNavigationBarWigdet()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('TabController'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new MyTabbedPage()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('TextField'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new EditTextElement()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('CheckBox'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LearnCheckBox()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Radio'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new RadioDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Switch'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new SwitchDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Slider'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LearnSlider()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('TimePicker'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new DatePickerDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Dialog'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new DialogDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ExpansionTitle'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ExpansionTileWigdet()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ExpansionPanelListSingle'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ExpansionPanelListSingleDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('ExpansionPanelListMuti'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        new ExpansionPanelListMutiDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Chip'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new ChipWigdet()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Tooptip'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new TooltipWigdet()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('LinearProgressIndicator'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new LinearProgressIndicatorDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Dismisible'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new DismissibleDemo()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('AnimationList'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new AnimatedListSample()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('PreferredSizeAppBar'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new AppBarBottomSample()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('Row Column Layout'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new RowColumnLayoutSimple()));
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('NutritionAnalysis'),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AppRoute.getPage('page://NutritionAnalysisPage',null)
-                              ),
-                            );
-                          },
-                        ),
-                        new RaisedButton(
-                          child: Text('JsonParse'),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => new JsonParseWidget()));
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          MenuItem.buildRaiseButton(context, 'BasicWidget', 'page://BasicWidgetPage'),
+          MenuItem.buildRaiseButton(context, 'MaterialWidget', 'page://MaterialWidgetPage'),
+          MenuItem.buildRaiseButton(context, 'Layout', 'page://LayoutPage'),
+          MenuItem.buildRaiseButton(context, 'Examples', 'page://ExamplesPage'),
+          MenuItem.buildRaiseButton(context, 'FishReduxPage', 'page://FishReduxPage')
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -753,46 +263,3 @@ class MyObserver extends NavigatorObserver {
     print(route.settings.name);
   }
 }
-
-/**
- * 本地化委托
- */
-// class MyLocalizationsDelegates extends LocalizationsDelegate<MaterialLocalizations>{
-//   @override
-//   bool isSupported(Locale locale) {
-// //是否支持该locale，如果不支持会报异常
-//     if(locale == const Locale('zh','cn')){
-//       return true;
-//     }
-//     return false;
-//   }
-//   @override//是否需要重载
-//   bool shouldReload(LocalizationsDelegate old)  => false;
-
-//   @override
-//   Future<MaterialLocalizations> load(Locale locale) {
-// //加载本地化
-//     return new SynchronousFuture(new MyLocalizations(locale));
-//   }
-// }
-// //本地化实现，继承DefaultMaterialLocalizations
-// class MyLocalizations extends DefaultMaterialLocalizations{
-//   final Locale locale;
-//   MyLocalizations(this.locale, );
-//   @override
-//   String get okButtonLabel {
-//     if(locale == const Locale('zh','cn')){
-//       return '好的';
-//     }else{
-//       return super.okButtonLabel;
-//     }
-//   }
-//   @override
-//   String get backButtonTooltip {
-//     if(locale == const Locale('zh','cn')){
-//       return '返回';
-//     }else{
-//       return super.okButtonLabel;
-//     }
-//   }
-// }

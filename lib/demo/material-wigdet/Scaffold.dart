@@ -23,7 +23,12 @@
 // primary
 // drawerDragStartBehavior
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ScaffoldPage')
 class LayoutScaffold extends StatelessWidget {
+  LayoutScaffold(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

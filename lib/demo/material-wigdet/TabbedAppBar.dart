@@ -20,8 +20,12 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
+@ARoute(url: 'page://TabbedAppBarSamplePage')
 class TabbedAppBarSample extends StatelessWidget {
+  TabbedAppBarSample(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

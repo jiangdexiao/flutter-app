@@ -92,7 +92,7 @@ import './Toast.dart';
 import 'package:annotation_route/route.dart';
 import '../../router.dart';
 
-@ARoute(url: 'page://LayoutButtonPage')
+@ARoute(url: 'page://ButtonPage')
 class LayoutButton extends StatelessWidget {
   LayoutButton(MyRouteOption option): super();
   @override

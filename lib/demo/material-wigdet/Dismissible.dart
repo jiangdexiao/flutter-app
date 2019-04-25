@@ -1,7 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
+@ARoute(url: 'page://DismissiblePage')
 class DismissibleDemo extends StatelessWidget {
+  DismissibleDemo(MyRouteOption option):super();
   final List<String> items = new List<String>.generate(20, (i) => "Item ${i + 1}");
 
   // DismissibleDemo({Key key, @required this.items}) : super(key: key);

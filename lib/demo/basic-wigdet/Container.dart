@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ContainerPage')
 /**
   Container({
     Key key,
@@ -31,9 +35,9 @@ import 'package:flutter/material.dart';
 // 如果foregroundDecoration设置的话，可能会遮盖color效果。
 // container背景色和decoration不能同时设置
 class LayoutContainer extends StatelessWidget{
-  LayoutContainer({this.title});
+  LayoutContainer(MyRouteOption option):super();
 
-  final String title;
+  // final String title;
 
   @override
   Widget build(BuildContext context){
@@ -76,7 +80,7 @@ class LayoutContainer extends StatelessWidget{
             tooltip: 'Navigation menu',
             onPressed: null,
           ),
-          new Text(title),
+          new Text('title'),
           new RaisedButton(
             child: new Text('返回上一个页面'),
             onPressed: (){

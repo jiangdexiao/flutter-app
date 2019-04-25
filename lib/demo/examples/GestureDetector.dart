@@ -26,8 +26,11 @@ onScaleUpdate
 onScaleEnd
  */
 import 'package:flutter/material.dart';
-
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+@ARoute(url: 'page://GesturePage')
 class GestureDemo extends StatelessWidget{
+  GestureDemo(MyRouteOption option):super();
   @override
   Widget build(BuildContext context){
     return new Scaffold(

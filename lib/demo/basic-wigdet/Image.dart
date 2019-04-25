@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://ImagePage')
 // 1.Image：通过ImageProvider来加载图片
 // Image 的一个参数是 ImageProvider，基本上所有形式的图片加载都是依赖它，这个类里面就是实现图片加载的原理。用法如下：
 // new Image(image: new AssetImage('images/logo.png'));
@@ -38,6 +42,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 // 5.Image.memory：用来加载Uint8List资源（byte数组）图片
 // new Image.memory(bytes)
 class LayoutImage extends StatelessWidget {
+  LayoutImage(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

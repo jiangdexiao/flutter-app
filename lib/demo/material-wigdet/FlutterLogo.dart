@@ -11,7 +11,12 @@
  * })
  */
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
+
+@ARoute(url: 'page://FlutterLogoPage')
 class FlutterLogoSample extends StatelessWidget {
+  FlutterLogoSample(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

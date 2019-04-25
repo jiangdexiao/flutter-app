@@ -3,13 +3,18 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:annotation_route/route.dart';
+import '../../router.dart';
 
-class AppBarBottomSample extends StatefulWidget {
+@ARoute(url: 'page://PreferredSizeAppBarPage')
+
+class PreferredSizeAppBarSample extends StatefulWidget {
+  PreferredSizeAppBarSample(MyRouteOption option):super();
   @override
-  _AppBarBottomSampleState createState() => new _AppBarBottomSampleState();
+  _PreferredSizeAppBarSampleState createState() => new _PreferredSizeAppBarSampleState();
 }
 
-class _AppBarBottomSampleState extends State<AppBarBottomSample> with SingleTickerProviderStateMixin {
+class _PreferredSizeAppBarSampleState extends State<PreferredSizeAppBarSample> with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
