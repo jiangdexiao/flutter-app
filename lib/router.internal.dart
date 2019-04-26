@@ -6,21 +6,24 @@
 
 import 'dart:convert';
 import 'package:annotation_route/route.dart';
+import 'package:demo001/demo/basic-wigdet/Button.dart';
 import 'package:demo001/demo/basic-wigdet/Column.dart';
-import 'package:demo001/demo/basic-wigdet/Row.dart';
 import 'package:demo001/demo/basic-wigdet/Icon.dart';
 import 'package:demo001/demo/basic-wigdet/Container.dart';
-import 'package:demo001/demo/basic-wigdet/Button.dart';
 import 'package:demo001/demo/basic-wigdet/Image.dart';
-import 'package:demo001/demo/examples/AnimatedList.dart';
-import 'package:demo001/demo/examples/GestureDetector.dart';
-import 'package:demo001/demo/layout/RowColumn.dart';
-import 'package:demo001/demo/examples/NutritionAnalysis.dart';
 import 'package:demo001/demo/basic-wigdet/Text.dart';
-import 'package:demo001/demo/material-wigdet/BasicAppBar.dart';
+import 'package:demo001/demo/basic-wigdet/Row.dart';
+import 'package:demo001/demo/examples/NutritionAnalysis.dart';
+import 'package:demo001/demo/examples/PathProvider.dart';
+import 'package:demo001/demo/examples/GestureDetector.dart';
+import 'package:demo001/demo/examples/AnimatedList.dart';
 import 'package:demo001/demo/examples/ShopCart.dart';
-import 'package:demo001/demo/material-wigdet/BottomNavigationBar.dart';
+import 'package:demo001/demo/examples/Sqflite.dart';
+import 'package:demo001/demo/examples/SharedPreferences.dart';
+import 'package:demo001/demo/layout/RowColumn.dart';
 import 'package:demo001/demo/examples/JsonParse.dart';
+import 'package:demo001/demo/material-wigdet/BasicAppBar.dart';
+import 'package:demo001/demo/material-wigdet/BottomNavigationBar.dart';
 import 'package:demo001/demo/material-wigdet/Card.dart';
 import 'package:demo001/demo/material-wigdet/CheckBox.dart';
 import 'package:demo001/demo/material-wigdet/Chip.dart';
@@ -52,17 +55,16 @@ import 'package:demo001/demo/menu/Examples.dart';
 import 'package:demo001/demo/menu/FishRedux.dart';
 import 'package:demo001/demo/menu/Layout.dart';
 import 'package:demo001/demo/menu/MaterialWidget.dart';
-import 'package:demo001/store/todo_list_page/page.dart';
 
 class ARouterInternalImpl extends ARouterInternal {
   ARouterInternalImpl();
   final Map<String, List<Map<String, dynamic>>> innerRouterMap =
       <String, List<Map<String, dynamic>>>{
+    'page://ButtonPage': [
+      {'clazz': LayoutButton}
+    ],
     'page://ColumnPage': [
       {'clazz': LayoutColumn}
-    ],
-    'page://RowPage': [
-      {'clazz': LayoutRow}
     ],
     'page://IconPage': [
       {'clazz': LayoutIcon}
@@ -70,38 +72,45 @@ class ARouterInternalImpl extends ARouterInternal {
     'page://ContainerPage': [
       {'clazz': LayoutContainer}
     ],
-    'page://ButtonPage': [
-      {'clazz': LayoutButton}
-    ],
     'page://ImagePage': [
       {'clazz': LayoutImage}
-    ],
-    'page://AnimatedListPage': [
-      {'clazz': AnimatedListSample}
-    ],
-    'page://GesturePage': [
-      {'clazz': GestureDemo}
-    ],
-    'page://RowColumnPage': [
-      {'clazz': RowColumnLayoutSimple}
-    ],
-    'page://NutritionAnalysisPage': [
-      {'clazz': NutritionAnalysisWidget}
     ],
     'page://TextPage': [
       {'clazz': LayoutText}
     ],
-    'page://BasicAppBarSamplePage': [
-      {'clazz': BasicAppBarSample}
+    'page://RowPage': [
+      {'clazz': LayoutRow}
+    ],
+    'page://NutritionAnalysisPage': [
+      {'clazz': NutritionAnalysisWidget}
+    ],
+    'page://PathProviderPage': [
+      {'clazz': PathProviderPage}
+    ],
+    'page://GesturePage': [
+      {'clazz': GestureDemo}
+    ],
+    'page://AnimatedListPage': [
+      {'clazz': AnimatedListSample}
     ],
     'page://ShopCartPage': [
       {'clazz': ShoppingList}
     ],
-    'page://BottomNavigationBarPage': [
-      {'clazz': BottomNavigationBarWigdet}
+    'page://SharedPreferencesPage': [
+      {'clazz': SqflitePage},
+      {'clazz': SharedPreferencesPage}
+    ],
+    'page://RowColumnPage': [
+      {'clazz': RowColumnLayoutSimple}
     ],
     'page://JsonPage': [
       {'clazz': JsonParseWidget}
+    ],
+    'page://BasicAppBarSamplePage': [
+      {'clazz': BasicAppBarSample}
+    ],
+    'page://BottomNavigationBarPage': [
+      {'clazz': BottomNavigationBarWigdet}
     ],
     'page://CardPage': [
       {'clazz': CardWigdetDemo}
@@ -195,9 +204,6 @@ class ARouterInternalImpl extends ARouterInternal {
     ],
     'page://MaterialWidgetPage': [
       {'clazz': MaterialWidgetPage}
-    ],
-    'page://ToDoListPage': [
-      {'clazz': ToDoListPage}
     ]
   };
 
@@ -222,36 +228,42 @@ class ARouterInternalImpl extends ARouterInternal {
 
   dynamic instanceFromClazz(Type clazz, dynamic option) {
     switch (clazz) {
+      case LayoutButton:
+        return new LayoutButton(option);
       case LayoutColumn:
         return new LayoutColumn(option);
-      case LayoutRow:
-        return new LayoutRow(option);
       case LayoutIcon:
         return new LayoutIcon(option);
       case LayoutContainer:
         return new LayoutContainer(option);
-      case LayoutButton:
-        return new LayoutButton(option);
       case LayoutImage:
         return new LayoutImage(option);
-      case AnimatedListSample:
-        return new AnimatedListSample(option);
-      case GestureDemo:
-        return new GestureDemo(option);
-      case RowColumnLayoutSimple:
-        return new RowColumnLayoutSimple(option);
-      case NutritionAnalysisWidget:
-        return new NutritionAnalysisWidget(option);
       case LayoutText:
         return new LayoutText(option);
-      case BasicAppBarSample:
-        return new BasicAppBarSample(option);
+      case LayoutRow:
+        return new LayoutRow(option);
+      case NutritionAnalysisWidget:
+        return new NutritionAnalysisWidget(option);
+      case PathProviderPage:
+        return new PathProviderPage(option);
+      case GestureDemo:
+        return new GestureDemo(option);
+      case AnimatedListSample:
+        return new AnimatedListSample(option);
       case ShoppingList:
         return new ShoppingList(option);
-      case BottomNavigationBarWigdet:
-        return new BottomNavigationBarWigdet(option);
+      case SqflitePage:
+        return new SqflitePage(option);
+      case SharedPreferencesPage:
+        return new SharedPreferencesPage(option);
+      case RowColumnLayoutSimple:
+        return new RowColumnLayoutSimple(option);
       case JsonParseWidget:
         return new JsonParseWidget(option);
+      case BasicAppBarSample:
+        return new BasicAppBarSample(option);
+      case BottomNavigationBarWigdet:
+        return new BottomNavigationBarWigdet(option);
       case CardWigdetDemo:
         return new CardWigdetDemo(option);
       case LearnCheckBox:

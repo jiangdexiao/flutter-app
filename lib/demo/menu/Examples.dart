@@ -24,6 +24,9 @@ class ExamplesPage extends StatelessWidget {
             //                                 new Product(name: 'Chocolate chips'),
             //                               ];
              MenuItem.buildRaiseButton(context, 'ShopCart', 'page://ShopCartPage'),
+             MenuItem.buildRaiseButton(context, 'SharedPreferences', 'page://SharedPreferencesPage'),
+             MenuItem.buildRaiseButton(context, 'PathProvider', 'page://PathProviderPage'),
+             MenuItem.buildRaiseButton(context, 'Sqflite', 'page://SqflitePage'),
           ],
         ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:annotation_route/route.dart';
 import '../../router.dart';
 
@@ -237,13 +237,13 @@ class _ImageViewWidget extends State<ImageViewWidget> {
               ),
           ),
           //使用缓存图片
-          new Center(
-            child: new CachedNetworkImage(
-              placeholder: new CircularProgressIndicator(),
-              imageUrl:
-                  'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
-            ),
-          )
+          // new Center(
+          //   child: new CachedNetworkImage(
+          //     placeholder: new CircularProgressIndicator(),
+          //     imageUrl:
+          //         'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
+          //   ),
+          // )
         ],
       ),
     );

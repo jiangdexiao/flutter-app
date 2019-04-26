@@ -76,9 +76,21 @@ Concurrent programming using isolates: independent workers that are similar to t
  */
 import 'package:flutter/material.dart';
 import './demo/menu/MenuItem.dart';
-import 'package:fish_redux/fish_redux.dart';
-import './store/todo_list_page/page.dart';
-import './store/todo_edit_page/page.dart';
+
+// /**
+//  * fish_redux
+//  */
+// import 'package:fish_redux/fish_redux.dart';
+// import './store/todo_list_page/page.dart';
+// import './store/todo_edit_page/page.dart';
+
+/**
+ * fluro
+ */
+import './demo/fluro/Application.dart';
+import 'package:fluro/fluro.dart';
+import './demo/fluro/Routes.dart';
+
 // 生成json转实体类 相关操作命令
 // flutter packages pub run build_runner build
 // flutter packages pub run build_runner watch
@@ -100,14 +112,21 @@ void main() {
 
 typedef void ButtonPressCallBack(String text);
 class MyApp extends StatelessWidget {
-  final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
-    PageRoutes(
-      pages: <String, Page<Object, dynamic>>{
-        'todo_list': ToDoListPage(),
-        'todo_edit': TodoEditPage(),
-      },
-    ),
-  ]);
+  // fish_redux
+  // final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
+  //   PageRoutes(
+  //     pages: <String, Page<Object, dynamic>>{
+  //       'todo_list': ToDoListPage(),
+  //       'todo_edit': TodoEditPage(),
+  //     },
+  //   ),
+  // ]);
+  MyApp(){
+    final router = new Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -124,6 +143,17 @@ class MyApp extends StatelessWidget {
         // ...
       },
       // initialRoute: '/home/one',
+      navigatorObservers: [MyObserver()],
+      builder: (BuildContext context, Widget child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.4), //字体大小
+          child: child,
+        );
+      },
+      onGenerateTitle: (context) {
+        return 'Flutter应用';
+      },
+      // 官方用法
       // onGenerateRoute: (setting){
       //   //setting.isInitialRoute; bool类型 是否初始路由
       //   //setting.name; 要跳转的路由名key
@@ -145,21 +175,15 @@ class MyApp extends StatelessWidget {
       //       );
       //     });
       // },
-      navigatorObservers: [MyObserver()],
-      builder: (BuildContext context, Widget child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.4), //字体大小
-          child: child,
-        );
-      },
-      onGenerateTitle: (context) {
-        return 'Flutter应用';
-      },
-      onGenerateRoute: (RouteSettings settings) {
-        return MaterialPageRoute<Object>(builder: (BuildContext context) {
-          return routes.buildPage(settings.name, settings.arguments);
-        });
-      },
+      // fish_redux 用法
+      // onGenerateRoute: (RouteSettings settings) {
+      //   return MaterialPageRoute<Object>(builder: (BuildContext context) {
+      //     return routes.buildPage(settings.name, settings.arguments);
+      //   });
+      // },
+      // fluro 用法
+      onGenerateRoute:Application.router.generator,
+
       // localizationsDelegates: [
       //     MyLocalizationsDelegates(),
       // ],
