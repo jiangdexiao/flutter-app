@@ -6,55 +6,55 @@
 
 import 'dart:convert';
 import 'package:annotation_route/route.dart';
-import 'package:demo001/demo/basic-wigdet/Button.dart';
-import 'package:demo001/demo/basic-wigdet/Column.dart';
-import 'package:demo001/demo/basic-wigdet/Icon.dart';
-import 'package:demo001/demo/basic-wigdet/Container.dart';
-import 'package:demo001/demo/basic-wigdet/Image.dart';
-import 'package:demo001/demo/basic-wigdet/Text.dart';
-import 'package:demo001/demo/basic-wigdet/Row.dart';
-import 'package:demo001/demo/examples/NutritionAnalysis.dart';
-import 'package:demo001/demo/examples/PathProvider.dart';
-import 'package:demo001/demo/examples/GestureDetector.dart';
-import 'package:demo001/demo/examples/AnimatedList.dart';
-import 'package:demo001/demo/examples/ShopCart.dart';
-import 'package:demo001/demo/examples/Sqflite.dart';
-import 'package:demo001/demo/examples/SharedPreferences.dart';
-import 'package:demo001/demo/layout/RowColumn.dart';
-import 'package:demo001/demo/examples/JsonParse.dart';
-import 'package:demo001/demo/material-wigdet/BasicAppBar.dart';
-import 'package:demo001/demo/material-wigdet/BottomNavigationBar.dart';
-import 'package:demo001/demo/material-wigdet/Card.dart';
-import 'package:demo001/demo/material-wigdet/CheckBox.dart';
-import 'package:demo001/demo/material-wigdet/Chip.dart';
-import 'package:demo001/demo/material-wigdet/Dialog.dart';
-import 'package:demo001/demo/material-wigdet/Dismissible.dart';
-import 'package:demo001/demo/material-wigdet/ExpansionPanelListMuti.dart';
-import 'package:demo001/demo/material-wigdet/ExpansionPanelListSingle.dart';
-import 'package:demo001/demo/material-wigdet/ExpansionTile.dart';
-import 'package:demo001/demo/material-wigdet/FlutterLogo.dart';
-import 'package:demo001/demo/material-wigdet/GridList.dart';
-import 'package:demo001/demo/material-wigdet/LinearProgressIndicator.dart';
-import 'package:demo001/demo/material-wigdet/ListTitle.dart';
-import 'package:demo001/demo/material-wigdet/ListView.dart';
-import 'package:demo001/demo/material-wigdet/PaginatedDataTable.dart';
-import 'package:demo001/demo/material-wigdet/PlaceHolder.dart';
-import 'package:demo001/demo/material-wigdet/PreferredSizeAppBar.dart';
-import 'package:demo001/demo/material-wigdet/Radio.dart';
-import 'package:demo001/demo/material-wigdet/Scaffold.dart';
-import 'package:demo001/demo/material-wigdet/Slider.dart';
-import 'package:demo001/demo/material-wigdet/Stepper.dart';
-import 'package:demo001/demo/material-wigdet/Switch.dart';
-import 'package:demo001/demo/material-wigdet/TabbedAppBar.dart';
-import 'package:demo001/demo/material-wigdet/TabController.dart';
-import 'package:demo001/demo/material-wigdet/TextField.dart';
-import 'package:demo001/demo/material-wigdet/TimePicker.dart';
-import 'package:demo001/demo/material-wigdet/Tooltip.dart';
-import 'package:demo001/demo/menu/BasicWidget.dart';
-import 'package:demo001/demo/menu/Examples.dart';
-import 'package:demo001/demo/menu/FishRedux.dart';
-import 'package:demo001/demo/menu/Layout.dart';
-import 'package:demo001/demo/menu/MaterialWidget.dart';
+import 'package:flutterApp/demo/basic-wigdet/Button.dart';
+import 'package:flutterApp/demo/basic-wigdet/Icon.dart';
+import 'package:flutterApp/demo/examples/AnimatedList.dart';
+import 'package:flutterApp/demo/basic-wigdet/Row.dart';
+import 'package:flutterApp/demo/basic-wigdet/Image.dart';
+import 'package:flutterApp/demo/basic-wigdet/Container.dart';
+import 'package:flutterApp/demo/basic-wigdet/Text.dart';
+import 'package:flutterApp/demo/basic-wigdet/Column.dart';
+import 'package:flutterApp/demo/examples/NutritionAnalysis.dart';
+import 'package:flutterApp/demo/examples/GestureDetector.dart';
+import 'package:flutterApp/demo/examples/PathProvider.dart';
+import 'package:flutterApp/demo/examples/SharedPreferences.dart';
+import 'package:flutterApp/demo/examples/ShopCart.dart';
+import 'package:flutterApp/demo/examples/JsonParse.dart';
+import 'package:flutterApp/demo/examples/Sqflite.dart';
+import 'package:flutterApp/demo/layout/RowColumn.dart';
+import 'package:flutterApp/demo/material-wigdet/BasicAppBar.dart';
+import 'package:flutterApp/demo/material-wigdet/BottomNavigationBar.dart';
+import 'package:flutterApp/demo/material-wigdet/Card.dart';
+import 'package:flutterApp/demo/material-wigdet/CheckBox.dart';
+import 'package:flutterApp/demo/material-wigdet/Chip.dart';
+import 'package:flutterApp/demo/material-wigdet/Dialog.dart';
+import 'package:flutterApp/demo/material-wigdet/Dismissible.dart';
+import 'package:flutterApp/demo/material-wigdet/ExpansionPanelListMuti.dart';
+import 'package:flutterApp/demo/material-wigdet/ExpansionPanelListSingle.dart';
+import 'package:flutterApp/demo/material-wigdet/ExpansionTile.dart';
+import 'package:flutterApp/demo/material-wigdet/FlutterLogo.dart';
+import 'package:flutterApp/demo/material-wigdet/GridList.dart';
+import 'package:flutterApp/demo/material-wigdet/LinearProgressIndicator.dart';
+import 'package:flutterApp/demo/material-wigdet/ListTitle.dart';
+import 'package:flutterApp/demo/material-wigdet/ListView.dart';
+import 'package:flutterApp/demo/material-wigdet/PaginatedDataTable.dart';
+import 'package:flutterApp/demo/material-wigdet/PlaceHolder.dart';
+import 'package:flutterApp/demo/material-wigdet/PreferredSizeAppBar.dart';
+import 'package:flutterApp/demo/material-wigdet/Radio.dart';
+import 'package:flutterApp/demo/material-wigdet/Scaffold.dart';
+import 'package:flutterApp/demo/material-wigdet/Slider.dart';
+import 'package:flutterApp/demo/material-wigdet/Stepper.dart';
+import 'package:flutterApp/demo/material-wigdet/Switch.dart';
+import 'package:flutterApp/demo/material-wigdet/TabbedAppBar.dart';
+import 'package:flutterApp/demo/material-wigdet/TabController.dart';
+import 'package:flutterApp/demo/material-wigdet/TextField.dart';
+import 'package:flutterApp/demo/material-wigdet/TimePicker.dart';
+import 'package:flutterApp/demo/material-wigdet/Tooltip.dart';
+import 'package:flutterApp/demo/menu/BasicWidget.dart';
+import 'package:flutterApp/demo/menu/Examples.dart';
+import 'package:flutterApp/demo/menu/FishRedux.dart';
+import 'package:flutterApp/demo/menu/Layout.dart';
+import 'package:flutterApp/demo/menu/MaterialWidget.dart';
 
 class ARouterInternalImpl extends ARouterInternal {
   ARouterInternalImpl();
@@ -63,48 +63,48 @@ class ARouterInternalImpl extends ARouterInternal {
     'page://ButtonPage': [
       {'clazz': LayoutButton}
     ],
-    'page://ColumnPage': [
-      {'clazz': LayoutColumn}
-    ],
     'page://IconPage': [
       {'clazz': LayoutIcon}
-    ],
-    'page://ContainerPage': [
-      {'clazz': LayoutContainer}
-    ],
-    'page://ImagePage': [
-      {'clazz': LayoutImage}
-    ],
-    'page://TextPage': [
-      {'clazz': LayoutText}
-    ],
-    'page://RowPage': [
-      {'clazz': LayoutRow}
-    ],
-    'page://NutritionAnalysisPage': [
-      {'clazz': NutritionAnalysisWidget}
-    ],
-    'page://PathProviderPage': [
-      {'clazz': PathProviderPage}
-    ],
-    'page://GesturePage': [
-      {'clazz': GestureDemo}
     ],
     'page://AnimatedListPage': [
       {'clazz': AnimatedListSample}
     ],
+    'page://RowPage': [
+      {'clazz': LayoutRow}
+    ],
+    'page://ImagePage': [
+      {'clazz': LayoutImage}
+    ],
+    'page://ContainerPage': [
+      {'clazz': LayoutContainer}
+    ],
+    'page://TextPage': [
+      {'clazz': LayoutText}
+    ],
+    'page://ColumnPage': [
+      {'clazz': LayoutColumn}
+    ],
+    'page://NutritionAnalysisPage': [
+      {'clazz': NutritionAnalysisWidget}
+    ],
+    'page://GesturePage': [
+      {'clazz': GestureDemo}
+    ],
+    'page://PathProviderPage': [
+      {'clazz': PathProviderPage}
+    ],
+    'page://SharedPreferencesPage': [
+      {'clazz': SharedPreferencesPage},
+      {'clazz': SqflitePage}
+    ],
     'page://ShopCartPage': [
       {'clazz': ShoppingList}
     ],
-    'page://SharedPreferencesPage': [
-      {'clazz': SqflitePage},
-      {'clazz': SharedPreferencesPage}
+    'page://JsonPage': [
+      {'clazz': JsonParseWidget}
     ],
     'page://RowColumnPage': [
       {'clazz': RowColumnLayoutSimple}
-    ],
-    'page://JsonPage': [
-      {'clazz': JsonParseWidget}
     ],
     'page://BasicAppBarSamplePage': [
       {'clazz': BasicAppBarSample}
@@ -230,36 +230,36 @@ class ARouterInternalImpl extends ARouterInternal {
     switch (clazz) {
       case LayoutButton:
         return new LayoutButton(option);
-      case LayoutColumn:
-        return new LayoutColumn(option);
       case LayoutIcon:
         return new LayoutIcon(option);
-      case LayoutContainer:
-        return new LayoutContainer(option);
-      case LayoutImage:
-        return new LayoutImage(option);
-      case LayoutText:
-        return new LayoutText(option);
-      case LayoutRow:
-        return new LayoutRow(option);
-      case NutritionAnalysisWidget:
-        return new NutritionAnalysisWidget(option);
-      case PathProviderPage:
-        return new PathProviderPage(option);
-      case GestureDemo:
-        return new GestureDemo(option);
       case AnimatedListSample:
         return new AnimatedListSample(option);
-      case ShoppingList:
-        return new ShoppingList(option);
-      case SqflitePage:
-        return new SqflitePage(option);
+      case LayoutRow:
+        return new LayoutRow(option);
+      case LayoutImage:
+        return new LayoutImage(option);
+      case LayoutContainer:
+        return new LayoutContainer(option);
+      case LayoutText:
+        return new LayoutText(option);
+      case LayoutColumn:
+        return new LayoutColumn(option);
+      case NutritionAnalysisWidget:
+        return new NutritionAnalysisWidget(option);
+      case GestureDemo:
+        return new GestureDemo(option);
+      case PathProviderPage:
+        return new PathProviderPage(option);
       case SharedPreferencesPage:
         return new SharedPreferencesPage(option);
-      case RowColumnLayoutSimple:
-        return new RowColumnLayoutSimple(option);
+      case SqflitePage:
+        return new SqflitePage(option);
+      case ShoppingList:
+        return new ShoppingList(option);
       case JsonParseWidget:
         return new JsonParseWidget(option);
+      case RowColumnLayoutSimple:
+        return new RowColumnLayoutSimple(option);
       case BasicAppBarSample:
         return new BasicAppBarSample(option);
       case BottomNavigationBarWigdet:

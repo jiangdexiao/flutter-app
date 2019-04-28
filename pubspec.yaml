@@ -1,4 +1,4 @@
-name: demo001
+name: flutterApp
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -31,6 +31,7 @@ dependencies:
   json_annotation: ^2.0.0
   # http请求
   dio: ^2.1.0
+  # 数据状态管理
   fish_redux: ^0.1.6
   # 添加sharedPreference依赖
   shared_preferences: ^0.5.2

@@ -24,58 +24,14 @@
       debugShowCheckedModeBanner（调试显示检查模式横幅）bool
  *  })
  */
-/**
- * Libraries
-animation
-The Flutter animation system. [...]
-cupertino
-Flutter widgets implementing the current iOS design language. [...]
-foundation
-Core Flutter framework primitives. [...]
-gestures
-The Flutter gesture recognizers. [...]
-material
-Flutter widgets implementing Material Design. [...]
-painting
-The Flutter painting library. [...]
-physics
-Simple one-dimensional physics simulations, such as springs, friction, and gravity, for use in user interface animations. [...]
-rendering
-The Flutter rendering tree. [...]
-scheduler
-The Flutter Scheduler library. [...]
-semantics
-The Flutter semantics package. [...]
-services
-Platform services exposed to Flutter apps. [...]
-widgets
-
-dart:ui
-Built-in types and core primitives for a Flutter application. [...]
-Core
-dart:async
-Support for asynchronous programming, with classes such as Future and Stream. [...]
-dart:collection
-Classes and utilities that supplement the collection support in dart:core. [...]
-dart:convert
-Encoders and decoders for converting between different data representations, including JSON and UTF-8. [...]
-dart:core
-Built-in types, collections, and other core functionality for every Dart program. [...]
-dart:developer
-Interact with developer tools such as the debugger and inspector. [...]
-dart:math
-Mathematical constants and functions, plus a random number generator. [...]
-dart:typed_data
-Lists that efficiently handle fixed sized data (for example, unsigned 8 byte integers) and SIMD numeric types. [...]
-
-VM
-dart:io
-File, socket, HTTP, and other I/O support for non-web applications. [...]
-dart:isolate
-Concurrent programming using isolates: independent workers that are similar to threads but don't share memory, communicating only via messages. [...]
- */
 import 'package:flutter/material.dart';
 import './demo/menu/MenuItem.dart';
+/**
+ * fluro
+ */
+import './demo/fluro/Application.dart';
+import 'package:fluro/fluro.dart';
+import './demo/fluro/Routes.dart';
 
 // /**
 //  * fish_redux
@@ -84,24 +40,7 @@ import './demo/menu/MenuItem.dart';
 // import './store/todo_list_page/page.dart';
 // import './store/todo_edit_page/page.dart';
 
-/**
- * fluro
- */
-import './demo/fluro/Application.dart';
-import 'package:fluro/fluro.dart';
-import './demo/fluro/Routes.dart';
-
-// 生成json转实体类 相关操作命令
-// flutter packages pub run build_runner build
-// flutter packages pub run build_runner watch
-
-// 生成路由映射关系相关操作命令
-// flutter packages pub run build_runner clean
-// flutter packages pub run build_runner build --delete-conflicting-outputs
-import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,
-debugPaintBaselinesEnabled,
-debugPaintPointersEnabled,
-debugPaintLayerBordersEnabled;
+// import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,debugPaintBaselinesEnabled,debugPaintPointersEnabled,debugPaintLayerBordersEnabled;
 void main() {
   // debugPaintLayerBordersEnabled =true;
   // debugPaintPointersEnabled = true;
@@ -137,6 +76,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: 'Home'),
       // home: routes.buildPage('todo_list', null),
+      //静态路由配置
       routes: {
         // '/home':(BuildContext context) => MyHomePage(),
         // '/home/one':(BuildContext context) => OnePage(),
@@ -182,7 +122,7 @@ class MyApp extends StatelessWidget {
       //   });
       // },
       // fluro 用法
-      onGenerateRoute:Application.router.generator,
+      // onGenerateRoute:Application.router.generator,
 
       // localizationsDelegates: [
       //     MyLocalizationsDelegates(),
@@ -212,47 +152,22 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       body: ListView(
@@ -268,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ), 
     );
   }
 }
