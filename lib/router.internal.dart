@@ -6,21 +6,22 @@
 
 import 'dart:convert';
 import 'package:annotation_route/route.dart';
+import 'package:flutterApp/demo/basic-wigdet/Column.dart';
 import 'package:flutterApp/demo/basic-wigdet/Button.dart';
-import 'package:flutterApp/demo/basic-wigdet/Icon.dart';
+import 'package:flutterApp/demo/examples/NutritionAnalysis.dart';
+import 'package:flutterApp/demo/examples/GestureDetector.dart';
 import 'package:flutterApp/demo/examples/AnimatedList.dart';
 import 'package:flutterApp/demo/basic-wigdet/Row.dart';
 import 'package:flutterApp/demo/basic-wigdet/Image.dart';
+import 'package:flutterApp/demo/examples/Fluro.dart';
+import 'package:flutterApp/demo/basic-wigdet/Icon.dart';
 import 'package:flutterApp/demo/basic-wigdet/Container.dart';
-import 'package:flutterApp/demo/basic-wigdet/Text.dart';
-import 'package:flutterApp/demo/basic-wigdet/Column.dart';
-import 'package:flutterApp/demo/examples/NutritionAnalysis.dart';
-import 'package:flutterApp/demo/examples/GestureDetector.dart';
 import 'package:flutterApp/demo/examples/PathProvider.dart';
 import 'package:flutterApp/demo/examples/SharedPreferences.dart';
+import 'package:flutterApp/demo/basic-wigdet/Text.dart';
 import 'package:flutterApp/demo/examples/ShopCart.dart';
-import 'package:flutterApp/demo/examples/JsonParse.dart';
 import 'package:flutterApp/demo/examples/Sqflite.dart';
+import 'package:flutterApp/demo/examples/JsonParse.dart';
 import 'package:flutterApp/demo/layout/RowColumn.dart';
 import 'package:flutterApp/demo/material-wigdet/BasicAppBar.dart';
 import 'package:flutterApp/demo/material-wigdet/BottomNavigationBar.dart';
@@ -60,11 +61,17 @@ class ARouterInternalImpl extends ARouterInternal {
   ARouterInternalImpl();
   final Map<String, List<Map<String, dynamic>>> innerRouterMap =
       <String, List<Map<String, dynamic>>>{
+    'page://ColumnPage': [
+      {'clazz': LayoutColumn}
+    ],
     'page://ButtonPage': [
       {'clazz': LayoutButton}
     ],
-    'page://IconPage': [
-      {'clazz': LayoutIcon}
+    'page://NutritionAnalysisPage': [
+      {'clazz': NutritionAnalysisWidget}
+    ],
+    'page://GesturePage': [
+      {'clazz': GestureDemo}
     ],
     'page://AnimatedListPage': [
       {'clazz': AnimatedListSample}
@@ -75,20 +82,14 @@ class ARouterInternalImpl extends ARouterInternal {
     'page://ImagePage': [
       {'clazz': LayoutImage}
     ],
+    'page://FluroPage': [
+      {'clazz': FluroDemoPage}
+    ],
+    'page://IconPage': [
+      {'clazz': LayoutIcon}
+    ],
     'page://ContainerPage': [
       {'clazz': LayoutContainer}
-    ],
-    'page://TextPage': [
-      {'clazz': LayoutText}
-    ],
-    'page://ColumnPage': [
-      {'clazz': LayoutColumn}
-    ],
-    'page://NutritionAnalysisPage': [
-      {'clazz': NutritionAnalysisWidget}
-    ],
-    'page://GesturePage': [
-      {'clazz': GestureDemo}
     ],
     'page://PathProviderPage': [
       {'clazz': PathProviderPage}
@@ -96,6 +97,9 @@ class ARouterInternalImpl extends ARouterInternal {
     'page://SharedPreferencesPage': [
       {'clazz': SharedPreferencesPage},
       {'clazz': SqflitePage}
+    ],
+    'page://TextPage': [
+      {'clazz': LayoutText}
     ],
     'page://ShopCartPage': [
       {'clazz': ShoppingList}
@@ -228,32 +232,34 @@ class ARouterInternalImpl extends ARouterInternal {
 
   dynamic instanceFromClazz(Type clazz, dynamic option) {
     switch (clazz) {
+      case LayoutColumn:
+        return new LayoutColumn(option);
       case LayoutButton:
         return new LayoutButton(option);
-      case LayoutIcon:
-        return new LayoutIcon(option);
+      case NutritionAnalysisWidget:
+        return new NutritionAnalysisWidget(option);
+      case GestureDemo:
+        return new GestureDemo(option);
       case AnimatedListSample:
         return new AnimatedListSample(option);
       case LayoutRow:
         return new LayoutRow(option);
       case LayoutImage:
         return new LayoutImage(option);
+      case FluroDemoPage:
+        return new FluroDemoPage(option);
+      case LayoutIcon:
+        return new LayoutIcon(option);
       case LayoutContainer:
         return new LayoutContainer(option);
-      case LayoutText:
-        return new LayoutText(option);
-      case LayoutColumn:
-        return new LayoutColumn(option);
-      case NutritionAnalysisWidget:
-        return new NutritionAnalysisWidget(option);
-      case GestureDemo:
-        return new GestureDemo(option);
       case PathProviderPage:
         return new PathProviderPage(option);
       case SharedPreferencesPage:
         return new SharedPreferencesPage(option);
       case SqflitePage:
         return new SqflitePage(option);
+      case LayoutText:
+        return new LayoutText(option);
       case ShoppingList:
         return new ShoppingList(option);
       case JsonParseWidget:

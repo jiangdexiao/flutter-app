@@ -14,7 +14,7 @@ class ExamplesPage extends StatelessWidget {
         body:ListView(
           children: <Widget>[
              MenuItem.buildRaiseButton(context, 'AnimationList', 'page://AnimationListPage'),
-             MenuItem.buildRaiseButton(context, 'NutritionAnalysis', 'page://NutritionAnalysisPage'),
+            //  MenuItem.buildRaiseButton(context, 'NutritionAnalysis', 'page://NutritionAnalysisPage'),
              MenuItem.buildRaiseButton(context, 'Json', 'page://JsonPage'),
              MenuItem.buildRaiseButton(context, 'Gesture', 'page://GesturePage'),
 
@@ -27,6 +27,11 @@ class ExamplesPage extends StatelessWidget {
              MenuItem.buildRaiseButton(context, 'SharedPreferences', 'page://SharedPreferencesPage'),
              MenuItem.buildRaiseButton(context, 'PathProvider', 'page://PathProviderPage'),
              MenuItem.buildRaiseButton(context, 'Sqflite', 'page://SqflitePage'),
+            //  MenuItem.buildRaiseButton(context, 'Fluro', 'page://FluroPage'),
+             //fluro 路由管理方式跳转
+             MenuItem.buildRaiseButton(context, 'ViewPager', '/viewpager',null,true),
+             MenuItem.buildRaiseButton(context, 'VideoPlayer', '/videoplayer',null,true),
+             MenuItem.buildRaiseButton(context, 'VideoPlayer2', '/videoplayer2',null,true),
           ],
         ),
     );

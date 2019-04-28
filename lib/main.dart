@@ -29,16 +29,9 @@ import './demo/menu/MenuItem.dart';
 /**
  * fluro
  */
-import './demo/fluro/Application.dart';
 import 'package:fluro/fluro.dart';
-import './demo/fluro/Routes.dart';
-
-// /**
-//  * fish_redux
-//  */
-// import 'package:fish_redux/fish_redux.dart';
-// import './store/todo_list_page/page.dart';
-// import './store/todo_edit_page/page.dart';
+import './demo/route/Application.dart';
+import './demo/route/Routes.dart';
 
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,debugPaintBaselinesEnabled,debugPaintPointersEnabled,debugPaintLayerBordersEnabled;
 void main() {
@@ -51,15 +44,6 @@ void main() {
 
 typedef void ButtonPressCallBack(String text);
 class MyApp extends StatelessWidget {
-  // fish_redux
-  // final AbstractRoutes routes = HybridRoutes(routes: <AbstractRoutes>[
-  //   PageRoutes(
-  //     pages: <String, Page<Object, dynamic>>{
-  //       'todo_list': ToDoListPage(),
-  //       'todo_edit': TodoEditPage(),
-  //     },
-  //   ),
-  // ]);
   MyApp(){
     final router = new Router();
     Routes.configureRoutes(router);
@@ -75,7 +59,6 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.red,
       ),
       home: MyHomePage(title: 'Home'),
-      // home: routes.buildPage('todo_list', null),
       //静态路由配置
       routes: {
         // '/home':(BuildContext context) => MyHomePage(),
@@ -115,14 +98,8 @@ class MyApp extends StatelessWidget {
       //       );
       //     });
       // },
-      // fish_redux 用法
-      // onGenerateRoute: (RouteSettings settings) {
-      //   return MaterialPageRoute<Object>(builder: (BuildContext context) {
-      //     return routes.buildPage(settings.name, settings.arguments);
-      //   });
-      // },
       // fluro 用法
-      // onGenerateRoute:Application.router.generator,
+      onGenerateRoute:Application.router.generator,
 
       // localizationsDelegates: [
       //     MyLocalizationsDelegates(),
