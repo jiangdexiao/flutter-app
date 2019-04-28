@@ -13,35 +13,37 @@
 ```
 
 ### 使用的插件库说明
-## 路由管理 
-#  第一种  fluro  以定义方式
-
-#  第二种  annotation_route  以注解方式
-
 ```js
+# 路由管理 
+# 第一种  fluro  以定义方式
+
+# 第二种  annotation_route  以注解方式
 # 生成路由映射关系相关操作命令
 > flutter packages pub run build_runner clean
 > flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
 ## json序列化管理
-# json_annotation
-# build_runner
-# json_serializable
-
 ```js
+> json_annotation
+> build_runner
+> json_serializable
+
 # 生成json转实体类 相关操作命令
 > flutter packages pub run build_runner build   -------------每次增加实体类需要手动构建一次
 > flutter packages pub run build_runner watch   -------------构建一次动态监听
 ```
 
-# fluttertoast
-# dio
-# shared_preferences
-# path_provider
-# sqflite
-# fish_redux
-# transparent_image
+### 其他库
+```js
+> fluttertoast
+> dio
+> shared_preferences
+> path_provider
+> sqflite
+> fish_redux
+> transparent_image
+```
 
 ### 项目结构
 ```
