@@ -23,7 +23,7 @@
 > flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
-## json序列化管理
+### json序列化管理
 ```js
 > json_annotation
 > build_runner
@@ -44,16 +44,6 @@
 > fish_redux
 > transparent_image
 ```
-
-### 项目结构
-```
-├── lib               // 
-│   ├── demo
-│   ├── model
-|   |—— utils
-|
-```
-
 
 This project is a starting point for a Flutter application.
 
