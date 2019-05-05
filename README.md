@@ -24,26 +24,35 @@
 ```
 
 ### json序列化管理
-```js
-> json_annotation
-> build_runner
-> json_serializable
+- [json_annotation](https://pub.dartlang.org/packages/json_annotation)
+- build_runner
+- [json_serializable](https://pub.dartlang.org/packages/json_serializable)
 
 # 生成json转实体类 相关操作命令
-> flutter packages pub run build_runner build   -------------每次增加实体类需要手动构建一次
-> flutter packages pub run build_runner watch   -------------构建一次动态监听
-```
+- flutter packages pub run build_runner build   -------------每次增加实体类需要手动构建一次
+- flutter packages pub run build_runner watch   -------------构建一次动态监听
 
 ### 其他库
-```js
-> fluttertoast
-> dio
-> shared_preferences
-> path_provider
-> sqflite
-> fish_redux
-> transparent_image
-```
+- [fluttertoast](https://pub.dartlang.org/packages/fluttertoast)
+- [dio](https://pub.dartlang.org/packages/dio)
+- [shared_preferences](https://pub.dartlang.org/packages/shared_preferences)
+- [path_provider](https://pub.dartlang.org/packages/path_provider)
+- [sqflite](https://pub.dartlang.org/packages/sqflite)
+- [fish_redux](https://pub.dartlang.org/packages/fish_redux)
+- [transparent_image](https://pub.dartlang.org/packages/transparent_image)
+
+### 相关资料链接
+- (https://cloud.tencent.com/developer/article/1183327)
+- [字体图标生成](http://fluttericon.com/)
+- [Flutter中文网](https://flutterchina.club )
+- [Flutter官网] (https://flutter.io)
+- [Flutter中文开发者论坛] (http://flutter-dev.cn/)
+- [Flutter|Dart语言中文社区](http://www.cndartlang.com/flutter) 
+- [Dart开源包](https://pub.dartlang.org/packages)
+- [学习资料](https://marcinszalek.pl/)
+- [Flutter开源APP](https://itsallwidgets.com/)
+- [深入理解Flutter Platform Channel](https://www.jianshu.com/p/39575a90e820)
+- [简书 - 闲鱼技术](https://www.jianshu.com/u/cf5c0e4b1111)
 
 This project is a starting point for a Flutter application.
 
@@ -55,6 +64,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
 
 ### git更新日志
 [CHANGELOG](./CHANGELOG.md)
