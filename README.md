@@ -25,13 +25,24 @@
 
 ### json序列化管理
 - [json_annotation](https://pub.dartlang.org/packages/json_annotation)
-- build_runner
+- [build_runner](https://pub.dartlang.org/packages/build_runner)
 - [json_serializable](https://pub.dartlang.org/packages/json_serializable)
 
-# 生成json转实体类 相关操作命令
+- 生成json转实体类 相关操作命令
 - flutter packages pub run build_runner build   -------------每次增加实体类需要手动构建一次
 - flutter packages pub run build_runner watch   -------------构建一次动态监听
 
+### 国际化
+- 添加两种国际化方案 
+- [简单国际化](https://flutterchina.club/tutorials/internationalization/#setting-up)
+- [intl](https://yq.aliyun.com/articles/614755)
+```js
+- 相关命令
+- pub run intl_translation:extract_to_arb --output-dir=target/directory my_program.dart more_of_my_program.dart
+  > flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/i10n lib/app_strings.dart
+- pub run intl_translation:generate_from_arb --generated-file-prefix=<prefix> <my_dart_files> <translated_ARB_files>
+  > flutter pub pub run intl_translation:generate_from_arb --output-dir=lib/i10n lib/app_strings.dart lib/i10n/intl_en.arb lib/i10n/intl_zh.arb
+```
 ### 其他库
 - [fluttertoast](https://pub.dartlang.org/packages/fluttertoast)
 - [dio](https://pub.dartlang.org/packages/dio)
@@ -40,13 +51,17 @@
 - [sqflite](https://pub.dartlang.org/packages/sqflite)
 - [fish_redux](https://pub.dartlang.org/packages/fish_redux)
 - [transparent_image](https://pub.dartlang.org/packages/transparent_image)
+- [video_player](https://pub.dartlang.org/packages/video_player)
+- flutter_localizations 本地化支持
+- [intl](https://pub.dartlang.org/packages/intl)
+- [intl_translation](https://pub.dartlang.org/packages/intl_translation)
 
 ### 相关资料链接
 - (https://cloud.tencent.com/developer/article/1183327)
 - [字体图标生成](http://fluttericon.com/)
 - [Flutter中文网](https://flutterchina.club )
-- [Flutter官网] (https://flutter.io)
-- [Flutter中文开发者论坛] (http://flutter-dev.cn/)
+- [Flutter官网](https://flutter.io)
+- [Flutter中文开发者论坛](http://flutter-dev.cn/)
 - [Flutter|Dart语言中文社区](http://www.cndartlang.com/flutter) 
 - [Dart开源包](https://pub.dartlang.org/packages)
 - [学习资料](https://marcinszalek.pl/)

@@ -32,6 +32,7 @@ class ExamplesPage extends StatelessWidget {
              MenuItem.buildRaiseButton(context, 'ViewPager', '/viewpager',null,true),
              MenuItem.buildRaiseButton(context, 'VideoPlayer', '/videoplayer',null,true),
              MenuItem.buildRaiseButton(context, 'VideoPlayer2', '/videoplayer2',null,true),
+             MenuItem.buildRaiseButton(context, 'Toggle Language', '/videoplayer2',null,true),
           ],
         ),
     );

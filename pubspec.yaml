@@ -19,6 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -42,6 +44,8 @@ dependencies:
   # 路由管理
   fluro: "^1.4.0"
   video_player: ^0.10.0+5
+  intl: ^0.15.8
+  intl_translation: ^0.17.4
         
 
 

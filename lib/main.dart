@@ -33,6 +33,13 @@ import 'package:fluro/fluro.dart';
 import './demo/route/Application.dart';
 import './demo/route/Routes.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+// import './app_strings_simple.dart';
+// import './utils/FreeLocalizations.dart';//手动切换内置语言
+
+import './app_strings.dart';
+import './localizations_delegate.dart';
+
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,debugPaintBaselinesEnabled,debugPaintPointersEnabled,debugPaintLayerBordersEnabled;
 void main() {
   // debugPaintLayerBordersEnabled =true;
@@ -43,6 +50,7 @@ void main() {
 }
 
 typedef void ButtonPressCallBack(String text);
+
 class MyApp extends StatelessWidget {
   MyApp(){
     final router = new Router();
@@ -52,13 +60,18 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         // primaryColor: Colors.lightBlue[800],
         // accentColor: Colors.cyan[600],
         backgroundColor: Colors.red,
       ),
-      home: MyHomePage(title: 'Home'),
+      // home: new Builder(builder: (context){
+      //   return new FreeLocalizations(
+      //     key: freeLocalizationStateKey,
+      //     child: new MyHomePage(),
+      //   );
+      // }),
+      home:new MyHomePage(),
       //静态路由配置
       routes: {
         // '/home':(BuildContext context) => MyHomePage(),
@@ -74,7 +87,8 @@ class MyApp extends StatelessWidget {
         );
       },
       onGenerateTitle: (context) {
-        return 'Flutter应用';
+        // return MyLocalizations.of(context).taskTitle;
+        return AppStrings.of(context).title();
       },
       // 官方用法
       // onGenerateRoute: (setting){
@@ -101,9 +115,12 @@ class MyApp extends StatelessWidget {
       // fluro 用法
       onGenerateRoute:Application.router.generator,
 
-      // localizationsDelegates: [
-      //     MyLocalizationsDelegates(),
-      // ],
+      localizationsDelegates: [
+        AppLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        // MyLocalizationsDelegate.delegate,  //添加在此处
+      ],
       // locale: Locale('zh','cn'),
       // localeResolutionCallback: (local,support){
       //   if(support.contains(support)){
@@ -113,10 +130,10 @@ class MyApp extends StatelessWidget {
       //   print('no_support');
       //   return const Locale('us','uk');
       // },
-      // supportedLocales: [
-      //   const Locale('uok'),
-      //   const Locale('meg'),
-      // ],
+      supportedLocales: [
+        const Locale('en', 'US'), // English
+        const Locale('zh', 'CH'),
+      ],
       // debugShowMaterialGrid:true,
       // showPerformanceOverlay:true,
       // checkerboardRasterCacheImages:true,
@@ -128,8 +145,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  MyHomePage({Key key}) : super(key: key);
+  // final String title;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -141,11 +158,12 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: new Text(AppStrings.of(context).title()),
       ),
       body: ListView(
         children: <Widget>[
@@ -153,7 +171,16 @@ class _MyHomePageState extends State<MyHomePage> {
           MenuItem.buildRaiseButton(context, 'MaterialWidget', 'page://MaterialWidgetPage'),
           MenuItem.buildRaiseButton(context, 'Layout', 'page://LayoutPage'),
           MenuItem.buildRaiseButton(context, 'Examples', 'page://ExamplesPage'),
-          MenuItem.buildRaiseButton(context, 'FishReduxPage', 'page://FishReduxPage')
+          MenuItem.buildRaiseButton(context, 'FishReduxPage', 'page://FishReduxPage'),
+          new Text(
+            AppStrings.of(context).helloFromDemo()+'$_counter',
+          ),
+          RaisedButton(
+            child: Text(AppStrings.of(context).click()),
+            onPressed: (){
+              // LocalLanguage.changeLocale();
+            },
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(

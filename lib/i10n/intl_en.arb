@@ -1,0 +1,21 @@
+{
+  "@@last_modified": "2019-05-05T16:47:10.650791",
+  "title": "Localization Demo",
+  "@title": {
+    "description": "application title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "click": "Click",
+  "@click": {
+    "description": "click",
+    "type": "text",
+    "placeholders": {}
+  },
+  "helloFromDemo": "Hello~",
+  "@helloFromDemo": {
+    "description": "hello",
+    "type": "text",
+    "placeholders": {}
+  }
+}
