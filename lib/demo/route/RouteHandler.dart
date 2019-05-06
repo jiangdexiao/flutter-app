@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import '../examples/ViewPager.dart';
 import '../examples/VideoPlayer.dart';
 import '../examples/VideoPlayer2.dart';
+import '../examples/Fonts.dart';
 class HandlerFactory {
   static Handler createHandler(String routeName) {
     return new Handler(
@@ -20,6 +21,7 @@ class HandlerFactory {
           case '/viewpager':return new ViewPager();break;
           case '/videoplayer':return new VideoPlayerSample();break;
           case '/videoplayer2':return new VideoPlayer2();break;
+          case '/fonts':return new Fonts();break;
           default:
             print("ROUTE WAS NOT FOUND !!!");
           break;

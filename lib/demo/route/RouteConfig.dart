@@ -5,4 +5,5 @@ List<RouteModel> routes = [
   RouteModel('/viewpager'),
   RouteModel('/videoplayer'),
   RouteModel('/videoplayer2'),
+  RouteModel('/fonts'),
 ];
