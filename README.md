@@ -68,6 +68,7 @@
 - [Flutter开源APP](https://itsallwidgets.com/)
 - [深入理解Flutter Platform Channel](https://www.jianshu.com/p/39575a90e820)
 - [简书 - 闲鱼技术](https://www.jianshu.com/u/cf5c0e4b1111)
+- [奔溃收集](https://blog.csdn.net/zhoaya188/article/details/85875828)
 
 This project is a starting point for a Flutter application.
 
