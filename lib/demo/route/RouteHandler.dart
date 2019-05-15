@@ -12,6 +12,13 @@ import '../examples/ViewPager.dart';
 import '../examples/VideoPlayer.dart';
 import '../examples/VideoPlayer2.dart';
 import '../examples/Fonts.dart';
+import '../menu/Sliver.dart';
+import '../examples/sliver/sliver_box.dart';
+import '../examples/sliver/sliver_expanded_appbar.dart';
+import '../examples/sliver/sliver_grid.dart';
+import '../examples/sliver/sliver_header.dart';
+import '../examples/sliver/sliver_list.dart';
+// import '../examples/sliver/sliver_menu.dart';
 class HandlerFactory {
   static Handler createHandler(String routeName) {
     return new Handler(
@@ -22,6 +29,13 @@ class HandlerFactory {
           case '/videoplayer':return new VideoPlayerSample();break;
           case '/videoplayer2':return new VideoPlayer2();break;
           case '/fonts':return new Fonts();break;
+          case '/sliver/sliver_menu':return new SliversPage();break;
+          case '/sliver/sliver_box':return new SliverBoxPage();break;
+          case '/sliver/sliver_expanded_appbar':return new ExpandedAppBarPage();break;
+          case '/sliver/sliver_grid':return new SliverGridPage();break;
+          case '/sliver/sliver_header':return new SliverHeaderPage();break;
+          case '/sliver/sliver_list':return new SliverListPage();break;
+          // case '/sliver/sliver_menu':return new SliverPage();break;
           default:
             print("ROUTE WAS NOT FOUND !!!");
           break;
