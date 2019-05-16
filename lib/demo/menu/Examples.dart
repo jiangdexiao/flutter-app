@@ -35,6 +35,7 @@ class ExamplesPage extends StatelessWidget {
              MenuItem.buildRaiseButton(context, 'Toggle Language', '/videoplayer2',null,true),
              MenuItem.buildRaiseButton(context, 'Fonts', '/fonts',null,true),
              MenuItem.buildRaiseButton(context, 'sliver', '/sliver/sliver_menu',null,true),
+             MenuItem.buildRaiseButton(context, 'slider 左滑右滑', '/slider',null,true),
           ],
         ),
     );

@@ -6,7 +6,7 @@ List<RouteModel> routes = [
   RouteModel('/videoplayer'),
   RouteModel('/videoplayer2'),
   RouteModel('/fonts'),
-  // RouteModel('/sliver'),
+  RouteModel('/slider'),
   RouteModel('/sliver/sliver_box'),
   RouteModel('/sliver/sliver_grid'),
   RouteModel('/sliver/sliver_expanded_appbar'),

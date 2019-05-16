@@ -46,6 +46,7 @@ dependencies:
   video_player: ^0.10.0+5
   intl: ^0.15.8
   intl_translation: ^0.17.4
+  url_launcher: ^4.0.1
         
 
 
@@ -86,6 +87,10 @@ flutter:
     - assets/images/dog7.jpeg
     - assets/images/dog8.jpeg
     - assets/images/dog9.jpeg
+    - assets/images/dog9.jpeg
+    - assets/images/ic_discover_more.png
+    - assets/images/ic_discover_next_card_back.png
+    - assets/images/ic_discover_next_card_right.png
     - assets/data/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

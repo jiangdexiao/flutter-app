@@ -18,7 +18,7 @@ import '../examples/sliver/sliver_expanded_appbar.dart';
 import '../examples/sliver/sliver_grid.dart';
 import '../examples/sliver/sliver_header.dart';
 import '../examples/sliver/sliver_list.dart';
-// import '../examples/sliver/sliver_menu.dart';
+import '../examples/slider/card.dart';
 class HandlerFactory {
   static Handler createHandler(String routeName) {
     return new Handler(
@@ -35,7 +35,7 @@ class HandlerFactory {
           case '/sliver/sliver_grid':return new SliverGridPage();break;
           case '/sliver/sliver_header':return new SliverHeaderPage();break;
           case '/sliver/sliver_list':return new SliverListPage();break;
-          // case '/sliver/sliver_menu':return new SliverPage();break;
+          case '/slider':return new SliderPage();break;
           default:
             print("ROUTE WAS NOT FOUND !!!");
           break;
