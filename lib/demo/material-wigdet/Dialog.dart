@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://DialogPage')
-class DialogDemo extends StatefulWidget {
-  DialogDemo(MyRouteOption option):super();
+class DialogWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _DialogDemo();
 }
 
-class _DialogDemo extends State<DialogDemo> {
+class _DialogDemo extends State<DialogWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
 
-@ARoute(url: 'page://ExpansionPanelListMutiPage')
-
-class ExpansionPanelListMutiDemo extends StatefulWidget {
-  ExpansionPanelListMutiDemo(MyRouteOption option):super();
+class ExpansionPanelListMutiWidget extends StatefulWidget {
   @override
   _ExpansionPanelListDemoState createState() => _ExpansionPanelListDemoState();
 }
@@ -16,7 +11,7 @@ class ExpandStateBean{
   ExpandStateBean(this.index,this.isOpen);
 }
 
-class _ExpansionPanelListDemoState extends State<ExpansionPanelListMutiDemo> {
+class _ExpansionPanelListDemoState extends State<ExpansionPanelListMutiWidget> {
   var currentPanelIndex = -1;
   List<int> mList;
    List<ExpandStateBean> expandStateList;

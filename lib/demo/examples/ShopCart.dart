@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
 
 class Product {
   const Product({this.name});
@@ -49,9 +47,8 @@ class ShoppingListItem extends StatelessWidget {
     );
   }
 }
-@ARoute(url: 'page://ShopCartPage')
 class ShoppingList extends StatefulWidget {
-  ShoppingList(MyRouteOption option,{Key key, this.products}) : super(key: key);
+  ShoppingList({Key key, this.products}) : super(key: key);
 
   final List<Product> products;
 
@@ -99,16 +96,3 @@ class _ShoppingListState extends State<ShoppingList> {
     );
   }
 }
-
-// void main() {
-//   runApp(new MaterialApp(
-//     title: 'Shopping App',
-//     home: new ShoppingList(
-//       products: <Product>[
-//         new Product(name: 'Eggs'),
-//         new Product(name: 'Flour'),
-//         new Product(name: 'Chocolate chips'),
-//       ],
-//     ),
-//   ));
-// }

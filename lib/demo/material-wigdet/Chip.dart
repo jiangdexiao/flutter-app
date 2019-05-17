@@ -16,13 +16,8 @@
     this.materialTapTargetSize//删除图标material点击区域大小,
   })
  */
-import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://ChipPage')
+import 'package:flutter/material.dart'; 
 class ChipWigdet extends StatelessWidget {
-  ChipWigdet(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

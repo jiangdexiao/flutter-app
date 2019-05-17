@@ -8,12 +8,7 @@
 // value → bool - 切换按钮的值。
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://SwitchPage')
 class SwitchDemo extends StatefulWidget {
-  SwitchDemo(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() => _SwitchDemo();
 }

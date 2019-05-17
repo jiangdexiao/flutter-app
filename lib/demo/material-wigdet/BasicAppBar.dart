@@ -23,19 +23,14 @@
     })
  */
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://BasicAppBarSamplePage')
 
 // This app is a stateful, it tracks the user's current choice.
-class BasicAppBarSample extends StatefulWidget {
-  BasicAppBarSample(MyRouteOption option):super();
+class BasicAppBarWidget extends StatefulWidget {
   @override
   _BasicAppBarSampleState createState() => new _BasicAppBarSampleState();
 }
 
-class _BasicAppBarSampleState extends State<BasicAppBarSample> {
+class _BasicAppBarSampleState extends State<BasicAppBarWidget> {
   Choice _selectedChoice = choices[0]; // The app's "state".
 
   void _select(Choice choice) {

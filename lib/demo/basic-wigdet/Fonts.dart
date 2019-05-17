@@ -5,7 +5,7 @@ const String words2 = "A shining crescent far beneath the flying vessel.";
 const String words3 = "A red flair silhouetted the jagged edge of a wing.";
 const String words4 = "Mist enveloped the ship three hours out from port.";
 
-class Fonts extends StatelessWidget {
+class FontsDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

@@ -91,7 +91,12 @@ flutter:
     - assets/images/ic_discover_more.png
     - assets/images/ic_discover_next_card_back.png
     - assets/images/ic_discover_next_card_right.png
-    - assets/data/
+    - assets/data/cards.json
+    - assets/data/student.json
+    - assets/data/image.json
+    - assets/data/city.json
+    - assets/data/user.json
+    - assets/data/photo.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

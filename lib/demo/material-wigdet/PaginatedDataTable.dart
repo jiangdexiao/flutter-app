@@ -1,11 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://DataTablePage')
+import 'package:flutter/material.dart'; 
 class DataTableDemo extends StatefulWidget {
-  DataTableDemo(MyRouteOption option):super();
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
 }
@@ -30,8 +25,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text('Data tables'),
         ),
@@ -95,8 +89,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
             )
           ],
         ),
-      ),
-    );
+      );
   }
 }
 

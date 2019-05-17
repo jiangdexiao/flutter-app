@@ -26,12 +26,7 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://TextFieldPage')
-class EditTextElement extends StatelessWidget {
-  EditTextElement(MyRouteOption option):super();
+class TextFieldDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

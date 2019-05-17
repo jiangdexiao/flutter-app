@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'dart:io';
 import 'package:sqflite/sqflite.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://SharedPreferencesPage')
 class SqflitePage extends StatefulWidget {
-  SqflitePage(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() => StorageState();
 }

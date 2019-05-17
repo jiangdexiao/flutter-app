@@ -11,13 +11,7 @@
 */
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://StepPage')
-
 class StepperWidget extends StatelessWidget {
-  StepperWidget(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

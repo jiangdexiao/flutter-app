@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://ExpansionTilePage')
-
 class ExpansionTileWigdet extends StatefulWidget {
-  ExpansionTileWigdet(MyRouteOption option):super();
   @override
   _ExpansionTileWigdet createState() => _ExpansionTileWigdet();
 }

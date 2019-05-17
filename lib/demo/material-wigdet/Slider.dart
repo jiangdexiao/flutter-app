@@ -10,18 +10,13 @@
 // value → double - 滑块的值。
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://SliderPage')
-class LearnSlider extends StatefulWidget{
-  LearnSlider(MyRouteOption option):super();
+class SliderDemo extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     return new _LearnSlider();
   }
 }
-class _LearnSlider extends State<LearnSlider>{
+class _LearnSlider extends State<SliderDemo>{
   double progressValue=0.0;
   @override
   Widget build(BuildContext context) {

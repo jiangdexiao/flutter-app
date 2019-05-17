@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
 
-@ARoute(url: 'page://GridViewPage')
-
-class GridListDemo extends StatelessWidget {
-  GridListDemo(MyRouteOption option):super();
+class GridListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'Grid List';
@@ -40,7 +35,7 @@ class GridListDemo extends StatelessWidget {
       count,
       (int index) =>
         new Container(
-          child:new Image.asset('images/index.png') 
+          child:new Image.asset('assets/images/index.png') 
         )
       );
   }
@@ -76,21 +71,21 @@ class GridListDemo extends StatelessWidget {
         childAspectRatio: 1.0
       ),
       children: <Widget>[
-        new Image.asset('images/dog.jpg'),
-        new Image.asset('images/dog1.jpeg'),
-        new Image.asset('images/dog2.jpeg'),
-        new Image.asset('images/dog3.jpeg'),
-        new Image.asset('images/dog4.jpg'),
-        new Image.asset('images/dog5.jpeg'),
-        new Image.asset('images/dog6.jpeg'),
-        new Image.asset('images/dog7.jpeg'),
-        new Image.asset('images/dog8.jpeg'),
-        new Image.asset('images/dog9.jpeg'),
-        new Image.asset('images/dog5.jpeg'),
-        new Image.asset('images/dog6.jpeg'),
-        new Image.asset('images/dog7.jpeg'),
-        new Image.asset('images/dog8.jpeg'),
-        new Image.asset('images/dog9.jpeg'),
+        new Image.asset('assets/images/dog.jpeg'),
+        new Image.asset('assets/images/dog1.jpeg'),
+        new Image.asset('assets/images/dog2.jpeg'),
+        new Image.asset('assets/images/dog3.jpeg'),
+        new Image.asset('assets/images/dog4.jpeg'),
+        new Image.asset('assets/images/dog5.jpeg'),
+        new Image.asset('assets/images/dog6.jpeg'),
+        new Image.asset('assets/images/dog7.jpeg'),
+        new Image.asset('assets/images/dog8.jpeg'),
+        new Image.asset('assets/images/dog9.jpeg'),
+        new Image.asset('assets/images/dog5.jpeg'),
+        new Image.asset('assets/images/dog6.jpeg'),
+        new Image.asset('assets/images/dog7.jpeg'),
+        new Image.asset('assets/images/dog8.jpeg'),
+        new Image.asset('assets/images/dog9.jpeg'),
       ],
     );
   }

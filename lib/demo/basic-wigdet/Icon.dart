@@ -42,13 +42,8 @@
 
 // https://fonts.google.com/
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://IconPage')
 
 class LayoutIcon extends StatelessWidget {
-  LayoutIcon(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

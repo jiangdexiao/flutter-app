@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../sharedelement/product_list.dart';
+import './sharedelement/product_list.dart';
 
 class ExpandedAppBarPage extends StatefulWidget {
   @override

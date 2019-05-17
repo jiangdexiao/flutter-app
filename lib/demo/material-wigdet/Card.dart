@@ -1,21 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://CardPage')
-class CardWigdetDemo extends StatelessWidget{
-  CardWigdetDemo(MyRouteOption option):super();
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Card'),
-      ),
-      body: new CardWidget() ,
-    );
-  }
-}
-
+import 'package:flutter/material.dart'; 
 class CardWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => new _CardWidget();
@@ -24,7 +7,12 @@ class CardWidget extends StatefulWidget{
 class _CardWidget extends State<CardWidget>{
   @override
   Widget build(BuildContext context){
-    return new SizedBox(height:520.0,child: buildCard());
+    return new Scaffold(
+      appBar: AppBar(
+        title: Text('Card'),
+      ),
+      body: SizedBox(height:520.0,child: buildCard()) ,
+    ); 
   }
 }
 

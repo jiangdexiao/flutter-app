@@ -25,20 +25,20 @@
  *  })
  */
 import 'package:flutter/material.dart';
-import './demo/menu/MenuItem.dart';
 /**
  * fluro
  */
 import 'package:fluro/fluro.dart';
 import './demo/route/Application.dart';
 import './demo/route/Routes.dart';
-
+import './demo/route/RouteModel.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 // import './app_strings_simple.dart';
 // import './utils/FreeLocalizations.dart';//手动切换内置语言
 
 import './app_strings.dart';
 import './localizations_delegate.dart';
+import './demo/examples/expansion_panel_list.dart';
 
 // import 'package:flutter/rendering.dart' show debugPaintSizeEnabled,debugPaintBaselinesEnabled,debugPaintPointersEnabled,debugPaintLayerBordersEnabled;
 void main() {
@@ -52,7 +52,7 @@ void main() {
 typedef void ButtonPressCallBack(String text);
 
 class MyApp extends StatelessWidget {
-  MyApp(){
+  MyApp() {
     final router = new Router();
     Routes.configureRoutes(router);
     Application.router = router;
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
       //     child: new MyHomePage(),
       //   );
       // }),
-      home:new MyHomePage(),
+      home: new MyHomePage(),
       //静态路由配置
       routes: {
         // '/home':(BuildContext context) => MyHomePage(),
@@ -113,7 +113,7 @@ class MyApp extends StatelessWidget {
       //     });
       // },
       // fluro 用法
-      onGenerateRoute:Application.router.generator,
+      onGenerateRoute: Application.router.generator,
 
       localizationsDelegates: [
         AppLocalizationsDelegate(),
@@ -158,36 +158,112 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
+    List<RouteGroup> groups = [
+      new RouteGroup(
+        groupName: 'BasicWidget',
+        routes: [
+          RouteModel('/container'),
+          RouteModel('/button'),
+          RouteModel('/column'),
+          RouteModel('/row'),
+          RouteModel('/icon'),
+          RouteModel('/image'),
+          RouteModel('/text'),
+          RouteModel('/font'),
+        ],
+      ),
+      new RouteGroup(
+        groupName: 'MaterialWigdet',
+        routes: [
+          RouteModel('/BasicAppBar'),
+          RouteModel('/BottomNavigationBar'),
+          RouteModel('/Card'),
+          RouteModel('/CheckBox'),
+          RouteModel('/Chip'),
+          RouteModel('/Dialog'),
+          RouteModel('/Dismissible'),
+          RouteModel('/ExpansionPanelListMuti'),
+          RouteModel('/ExpansionPanelListSingle'),
+          RouteModel('/ExpansionTile'),
+          RouteModel('/FlutterLogo'),
+          RouteModel('/LinearProgressIndicator'),
+          RouteModel('/PaginatedDataTable'),
+          RouteModel('/PlaceHolder'),
+          RouteModel('/PreferredSizeAppBar'),
+          RouteModel('/Radio'),
+          RouteModel('/Slider'),
+          RouteModel('/Stepper'),
+          RouteModel('/Switch'),
+          RouteModel('/Scaffold'),
+          RouteModel('/TabbedAppBar'),
+          RouteModel('/TabController'),
+          RouteModel('/TextField'),
+          RouteModel('/TimePicker'),
+          RouteModel('/Tooltip'),
+          RouteModel('/GestureDetector'),
+        ],
+      ),
+      new RouteGroup(
+        groupName: 'Layout',
+        routes: [
+          RouteModel('/RowColumn'), 
+          RouteModel('/FittedBox'),
+        ]
+      ),
+      new RouteGroup(groupName: 'GridView', routes: [
+        RouteModel('/GridView'),
+      ]),
+      new RouteGroup(groupName: 'ListView', routes: [
+        RouteModel('/ListView'),
+        RouteModel('/ListTitle'),
+        RouteModel('/ListReflesh'),
+        RouteModel('/ListBody'),
+      ]),
+      new RouteGroup(groupName: 'Sliver', routes: [
+        RouteModel('/sliver_box'),
+        RouteModel('/sliver_grid'),
+        RouteModel('/sliver_expanded_appbar'),
+        RouteModel('/sliver_header'),
+        RouteModel('/sliver_list'),
+      ]),
+      new RouteGroup(
+        groupName: 'Examples',
+        routes: [
+          RouteModel('/JsonParse'),
+          RouteModel('/PathProvider'),
+          RouteModel('/SharedPreferences'),
+          RouteModel('/viewpager'),
+          RouteModel('/videoplayer'),
+          RouteModel('/videoplayer2'),
+          RouteModel('/sqlite'),
+          RouteModel('/slidercard'),
+        ],
+      ),
+      new RouteGroup(
+        groupName: 'animation',
+        routes: [
+          RouteModel('/photohero'),
+          RouteModel('/animated_list'),
+        ]
+      ),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: new Text(AppStrings.of(context).title()),
       ),
       body: ListView(
         children: <Widget>[
-          MenuItem.buildRaiseButton(context, 'BasicWidget', 'page://BasicWidgetPage'),
-          MenuItem.buildRaiseButton(context, 'MaterialWidget', 'page://MaterialWidgetPage'),
-          MenuItem.buildRaiseButton(context, 'Layout', 'page://LayoutPage'),
-          MenuItem.buildRaiseButton(context, 'Examples', 'page://ExamplesPage'),
-          MenuItem.buildRaiseButton(context, 'FishReduxPage', 'page://FishReduxPage'),
-          new Text(
-            AppStrings.of(context).helloFromDemo()+'$_counter',
-          ),
-          RaisedButton(
-            child: Text(AppStrings.of(context).click()),
-            onPressed: (){
-              // LocalLanguage.changeLocale();
-            },
-          ),
+          LearnExpansionPanelList(routeGroup: groups),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }

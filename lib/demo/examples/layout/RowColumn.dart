@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://RowColumnPage')
 class RowColumnLayoutSimple extends StatelessWidget{
-  RowColumnLayoutSimple(MyRouteOption option):super();
   @override
   Widget build(BuildContext context){
     return new Scaffold(

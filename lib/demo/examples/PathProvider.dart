@@ -7,11 +7,7 @@ getExternalStorageDirectory()//这个是存储卡，仅仅在Android平台可以
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://PathProviderPage')
 class PathProviderPage extends StatefulWidget {
-  PathProviderPage(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() => StorageState();
 }

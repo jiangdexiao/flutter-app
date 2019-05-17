@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
 
-@ARoute(url: 'page://TimePickerPage')
-class DatePickerDemo extends StatefulWidget {
-  DatePickerDemo(MyRouteOption option):super();
+class TimePickerDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _DatePickerDemo();
 }
 
-class _DatePickerDemo extends State<DatePickerDemo> {
+class _DatePickerDemo extends State<TimePickerDemo> {
   _showDataPicker() async {
     Locale myLocale = Localizations.localeOf(context);
     var picker = await showDatePicker(
@@ -36,18 +32,22 @@ class _DatePickerDemo extends State<DatePickerDemo> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Column(
-      children: <Widget>[
-        RaisedButton(
-          child: Text(_time == null ? '选择日期' : _time),
-          onPressed: () => _showDataPicker(),
-        ),
-        RaisedButton(
-          child: Text(_time == null ? '选择时间' : _time),
-          onPressed: () => _showTimePicker(),
-        ),
-
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Timepicker'),
+      ),
+      body: Column(
+        children: <Widget>[
+          RaisedButton(
+            child: Text(_time == null ? '选择日期' : _time),
+            onPressed: () => _showDataPicker(),
+          ),
+          RaisedButton(
+            child: Text(_time == null ? '选择时间' : _time),
+            onPressed: () => _showTimePicker(),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -89,12 +89,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import './Toast.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://ButtonPage')
 class LayoutButton extends StatelessWidget {
-  LayoutButton(MyRouteOption option): super();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

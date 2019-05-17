@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import '../sharedelement/product_list.dart';
+import './sharedelement/product_list.dart';
 
 final List<String> titleAssets = [
   'assets/images/dog1.jpeg',

@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://CheckBoxPage')
-class LearnCheckBox extends StatefulWidget{
-  LearnCheckBox(MyRouteOption option):super();
+class CheckBoxWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     return new _LearnCheckBox();
   }
 }
-class _LearnCheckBox extends State<LearnCheckBox>{
+class _LearnCheckBox extends State<CheckBoxWidget>{
   bool isCheck=false;
   List<bool> isChecks=[false,false];
   @override

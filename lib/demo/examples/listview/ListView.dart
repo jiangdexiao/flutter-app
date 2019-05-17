@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 //使用 外部包 在pubspec文件管理里配置
-import 'package:english_words/english_words.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://ListViewPage')
+import 'package:english_words/english_words.dart'; 
 //无状态部件
 class ListViewDemo extends StatelessWidget{
-  ListViewDemo(MyRouteOption option):super();
   @override 
   Widget build(BuildContext context){
     // final wordPair = new WordPair.random();

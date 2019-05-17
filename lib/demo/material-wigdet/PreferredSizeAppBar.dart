@@ -3,13 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://PreferredSizeAppBarPage')
-
 class PreferredSizeAppBarSample extends StatefulWidget {
-  PreferredSizeAppBarSample(MyRouteOption option):super();
   @override
   _PreferredSizeAppBarSampleState createState() => new _PreferredSizeAppBarSampleState();
 }
@@ -38,8 +32,7 @@ class _PreferredSizeAppBarSampleState extends State<PreferredSizeAppBarSample> w
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return new Scaffold(
         appBar: new AppBar(
           title: const Text('AppBar Bottom Widget'),
           leading: new IconButton(
@@ -75,8 +68,7 @@ class _PreferredSizeAppBarSampleState extends State<PreferredSizeAppBarSample> w
             );
           }).toList(),
         ),
-      ),
-    );
+      );
   }
 }
 

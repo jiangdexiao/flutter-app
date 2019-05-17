@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:annotation_route/route.dart';
 import '../../router.dart';
-import './MenuItem.dart';
+import '../menu/MenuItem.dart';
 @ARoute(url: 'page://MaterialWidgetPage')
 
 class MaterialWidgetPage extends StatelessWidget {

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://SharedPreferencesPage')
 class SharedPreferencesPage extends StatefulWidget {
-  SharedPreferencesPage(MyRouteOption option):super();
   @override
   State<StatefulWidget> createState() => StorageState();
 }

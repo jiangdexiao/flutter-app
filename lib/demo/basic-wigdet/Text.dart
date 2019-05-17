@@ -8,12 +8,7 @@
 // API链接：https://docs.flutter.io/flutter/painting/TextStyle-class.html
 
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://TextPage')
 class LayoutText extends StatelessWidget{
-  LayoutText(MyRouteOption option):super();
   @override
   Widget build(BuildContext context){
     return new Scaffold(

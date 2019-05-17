@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
 
-@ARoute(url: 'page://ContainerPage')
 /**
   Container({
     Key key,
@@ -35,8 +32,6 @@ import '../../router.dart';
 // 如果foregroundDecoration设置的话，可能会遮盖color效果。
 // container背景色和decoration不能同时设置
 class LayoutContainer extends StatelessWidget{
-  LayoutContainer(MyRouteOption option):super();
-
   // final String title;
 
   @override

@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://BottomNavigationBarPage')
 class BottomNavigationBarWigdet extends StatefulWidget {
-  BottomNavigationBarWigdet(MyRouteOption option,{Key key}) : super(key: key);
-
   @override
   _BottomNavigationBarWigdet createState() => _BottomNavigationBarWigdet();
 }

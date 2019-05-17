@@ -5,12 +5,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../../model/Student.dart';
 import '../../model/City.dart';
 import '../../model/User.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://JsonPage')
-
 class JsonParseWidget extends StatefulWidget{
-  JsonParseWidget(MyRouteOption option):super();
   @override
   _JsonParseWidget createState() =>new _JsonParseWidget();
 }
@@ -77,7 +72,7 @@ class _JsonParseWidget extends State<JsonParseWidget>{
 
   Future<Student> loadStudent() async {
     try{
-      String jsonString = await _loadJsonAsset('data/student.json');
+      String jsonString = await _loadJsonAsset('assets/data/student.json');
       final jsonResponse = json.decode(jsonString);
       Student student = new Student.fromJson(jsonResponse);
       // print(student.name);
@@ -88,7 +83,7 @@ class _JsonParseWidget extends State<JsonParseWidget>{
   }
   Future<City> loadCity() async {
     try{
-      String jsonString = await _loadJsonAsset('data/city.json');
+      String jsonString = await _loadJsonAsset('assets/data/city.json');
       final jsonResponse = json.decode(jsonString);
       City city = new City.fromJson(jsonResponse);
       return city;
@@ -98,7 +93,7 @@ class _JsonParseWidget extends State<JsonParseWidget>{
   }
   Future<User> loadUser() async {
     try{
-      String jsonString = await _loadJsonAsset('data/user.json');
+      String jsonString = await _loadJsonAsset('assets/data/user.json');
       final jsonResponse = json.decode(jsonString);
       User user = new User.fromJson(jsonResponse);
       return user;

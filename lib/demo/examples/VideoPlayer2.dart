@@ -32,7 +32,8 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
     };
   }
 
-  FadeAnimation imageFadeAnim = FadeAnimation(child: const Icon(Icons.play_arrow, size: 100.0));
+  FadeAnimation imageFadeAnim =
+      FadeAnimation(child: const Icon(Icons.play_arrow, size: 100.0));
   VoidCallback listener;
 
   VideoPlayerController get controller => widget.controller;
@@ -62,10 +63,12 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
             return;
           }
           if (controller.value.isPlaying) {
-            imageFadeAnim = FadeAnimation(child: const Icon(Icons.pause, size: 100.0));
+            imageFadeAnim =
+                FadeAnimation(child: const Icon(Icons.pause, size: 100.0));
             controller.pause();
           } else {
-            imageFadeAnim = FadeAnimation(child: const Icon(Icons.play_arrow, size: 100.0));
+            imageFadeAnim =
+                FadeAnimation(child: const Icon(Icons.play_arrow, size: 100.0));
             controller.play();
           }
         },
@@ -84,15 +87,21 @@ class _VideoPlayPauseState extends State<VideoPlayPause> {
               : null),
     ];
 
-    return Stack(
-      fit: StackFit.passthrough,
-      children: children,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Video'),
+      ),
+      body: Stack(
+        fit: StackFit.passthrough,
+        children: children,
+      ),
     );
   }
 }
 
 class FadeAnimation extends StatefulWidget {
-  FadeAnimation({this.child, this.duration = const Duration(milliseconds: 500)});
+  FadeAnimation(
+      {this.child, this.duration = const Duration(milliseconds: 500)});
 
   final Widget child;
   final Duration duration;
@@ -101,13 +110,15 @@ class FadeAnimation extends StatefulWidget {
   _FadeAnimationState createState() => _FadeAnimationState();
 }
 
-class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProviderStateMixin {
+class _FadeAnimationState extends State<FadeAnimation>
+    with SingleTickerProviderStateMixin {
   AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(duration: widget.duration, vsync: this);
+    animationController =
+        AnimationController(duration: widget.duration, vsync: this);
     animationController.addListener(() {
       if (mounted) {
         setState(() {});
@@ -147,7 +158,8 @@ class _FadeAnimationState extends State<FadeAnimation> with SingleTickerProvider
   }
 }
 
-typedef Widget VideoWidgetBuilder(BuildContext context, VideoPlayerController controller);
+typedef Widget VideoWidgetBuilder(
+    BuildContext context, VideoPlayerController controller);
 
 abstract class PlayerLifeCycle extends StatefulWidget {
   PlayerLifeCycle(this.dataSource, this.childBuilder);
@@ -352,10 +364,9 @@ class AspectRatioVideoState extends State<AspectRatioVideo> {
   }
 }
 
-
-class VideoPlayer2 extends StatelessWidget{
+class VideoPlayer2 extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
         length: 3,
@@ -406,7 +417,6 @@ class VideoPlayer2 extends StatelessWidget{
     );
   }
 }
-
 
 // void main() {
 //   runApp(

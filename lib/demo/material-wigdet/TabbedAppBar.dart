@@ -19,19 +19,13 @@
  *  })
  */
 
-import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-
-@ARoute(url: 'page://TabbedAppBarSamplePage')
+import 'package:flutter/material.dart'; 
 class TabbedAppBarSample extends StatelessWidget {
-  TabbedAppBarSample(MyRouteOption option):super();
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new DefaultTabController(
+    return new  DefaultTabController(
         length: choices.length,
-        child: new Scaffold(
+        child: Scaffold(
           appBar: new AppBar(
             title: const Text('Tabbed AppBar'),
             bottom: new TabBar(
@@ -62,8 +56,7 @@ class TabbedAppBarSample extends StatelessWidget {
             }).toList(),
           ),
         ),
-      ),
-    );
+      );
   }
 }
 

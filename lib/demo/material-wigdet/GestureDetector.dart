@@ -26,27 +26,16 @@ onScaleUpdate
 onScaleEnd
  */
 import 'package:flutter/material.dart';
-import 'package:annotation_route/route.dart';
-import '../../router.dart';
-@ARoute(url: 'page://GesturePage')
-class GestureDemo extends StatelessWidget{
-  GestureDemo(MyRouteOption option):super();
-  @override
-  Widget build(BuildContext context){
-    return new Scaffold(
-      appBar: AppBar(title:Text('手势')),
-      body: GestureDecetorWidget(),
-    );
-  }
-}
 
-class GestureDecetorWidget extends StatefulWidget{
+class GestureDemo extends StatefulWidget{
   State<StatefulWidget> createState()=> new _GestureDecetorWidget();
 }
 
-class _GestureDecetorWidget extends State<GestureDecetorWidget>{
+class _GestureDecetorWidget extends State<GestureDemo>{
   Widget build(BuildContext context){
-    return new GestureDetector(
+    return new Scaffold(
+      appBar: AppBar(title:Text('手势')),
+      body: GestureDetector(
       onTap:(){
         print('onTap');
       },
@@ -72,6 +61,7 @@ class _GestureDecetorWidget extends State<GestureDecetorWidget>{
             color: Colors.lightGreen[500]),
         child: new Center(child: new Text("点击监听")),
       ),
+    ),
     );
   }
 }
